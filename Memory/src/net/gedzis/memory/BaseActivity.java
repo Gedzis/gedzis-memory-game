@@ -65,6 +65,13 @@ public class BaseActivity extends Activity {
 						}).show();
 	}
 
+	public long getVibrationIntensity() {
+		if (!GameSettingsActivity.getVibrate(this.getApplicationContext())) {
+			return new Long(0);
+		} else
+			return Constants.VIBRATE_ITENSITY;
+	}
+
 	public void startGame(int selected) {
 		Intent viewActivityIntent = new Intent(this, CardsGameActivity.class);
 		viewActivityIntent.putExtra(Constants.GAME_TABLE_COL, gameTables.get(

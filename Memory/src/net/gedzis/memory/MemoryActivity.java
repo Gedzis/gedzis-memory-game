@@ -1,5 +1,6 @@
 package net.gedzis.memory;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,12 +14,17 @@ public class MemoryActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.main);
 		View newButton = findViewById(R.id.new_game_button);
 		newButton.setOnClickListener(this);
+		View settingsButton = findViewById(R.id.settings_button);
+		settingsButton.setOnClickListener(this);
 	}
 
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.new_game_button:
 			openNewGameDialog();
+			break;
+		case R.id.settings_button:
+			startActivity(new Intent(this, GameSettingsActivity.class));
 			break;
 		}
 	}
