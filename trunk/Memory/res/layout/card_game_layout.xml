@@ -20,9 +20,9 @@
 			android:layout_alignParentRight="true" android:layout_height="wrap_content"
 			android:id="@+id/timmer" />
 	</RelativeLayout>
-	<TableLayout android:layout_width="fill_parent"
+	<TableLayout android:layout_width="wrap_content" android:stretchColumns="true"
 		android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/game_table">
+		android:id="@+id/game_table" android:scaleType="fitXY" android:shrinkColumns="*"  android:layout_gravity="center" >
 
 	</TableLayout>
 </LinearLayout>

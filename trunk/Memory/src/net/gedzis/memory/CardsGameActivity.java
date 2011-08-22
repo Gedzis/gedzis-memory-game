@@ -29,6 +29,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Chronometer.OnChronometerTickListener;
+import android.widget.ImageView.ScaleType;
 
 public class CardsGameActivity extends BaseActivity {
 	private static Object lock = new Object();
@@ -131,6 +132,8 @@ public class CardsGameActivity extends BaseActivity {
 		button.setBackgroundDrawable(backImage);
 		button.setId(100 * x + y);
 		button.setOnClickListener(buttonListener);
+		button.setAdjustViewBounds(true);
+		button.setScaleType(ScaleType.FIT_XY);
 		return button;
 	}
 
