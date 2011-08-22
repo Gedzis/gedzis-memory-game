@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.gedzis.memory.R;
+import net.gedzis.memory.model.GameTable;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 public class Common {
+
 	public List<Drawable> loadImages(Context context) {
 		List<Drawable> images = new ArrayList<Drawable>();
 		images.add(context.getResources().getDrawable(R.drawable.card1));
@@ -33,7 +35,25 @@ public class Common {
 		images.add(context.getResources().getDrawable(R.drawable.card21));
 		return images;
 	}
-	public Drawable getBackImage(Context context){
+
+	public Drawable getBackImage(Context context) {
 		return context.getResources().getDrawable(R.drawable.back);
 	}
+
+	public List<GameTable> getGameTables() {
+		List<GameTable> gameTables = new ArrayList<GameTable>();
+		gameTables.add(createNewGameTable(1, 2));
+		gameTables.add(createNewGameTable(2, 2));
+		gameTables.add(createNewGameTable(2, 3));
+		gameTables.add(createNewGameTable(3, 4));
+		gameTables.add(createNewGameTable(4, 4));
+		gameTables.add(createNewGameTable(6, 6));
+		return gameTables;
+	}
+
+	protected GameTable createNewGameTable(int col, int row) {
+		// TODO reikia patikrinti ar tikrai uzteks turimu paveiksleliu
+		return new GameTable(col, row);
+	}
+
 }

@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import net.gedzis.memory.common.Common;
+import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.model.Card;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
@@ -51,7 +52,10 @@ public class CardsActivity extends Activity {
 		backImage = common.getBackImage(this);
 		buttonListener = new ButtonListener();
 		handler = new UpdateCardsHandler();
-		newGame(2, 3);
+		newGame(getIntent().getIntExtra(Constants.GAME_TABLE_ROW,
+				Constants.DEFAULT_GAME_TABLE_SIZE_ROW), getIntent()
+				.getIntExtra(Constants.GAME_TABLE_COL,
+						Constants.DEFAULT_GAME_TABLE_SIZE_COL));
 	}
 
 	public void updateTurnsCaption() {
