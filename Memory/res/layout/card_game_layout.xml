@@ -16,8 +16,6 @@
 			android:textColor="#FFEEAA" android:id="@+id/time_elapsed_caption"
 			android:text="@string/time_elapsed_title_text"
 			android:layout_toLeftOf="@+id/timmer" />
-
-
 		<Chronometer android:layout_width="wrap_content"
 			android:layout_alignParentRight="true" android:layout_height="wrap_content"
 			android:id="@+id/timmer" />
