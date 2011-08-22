@@ -6,18 +6,14 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import net.gedzis.memory.common.Common;
 import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.model.Card;
-import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -26,13 +22,12 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CardsGameActivity extends Activity {
+public class CardsGameActivity extends BaseActivity {
 	private static Object lock = new Object();
 	private ButtonListener buttonListener;
 	private static int TABLE_ROW_COUNT = -1;
 	private static int TABLE_COL_COUNT = -1;
 	private int[][] gameTable;
-	private Common common = new Common();
 	private List<Drawable> images;
 	private Drawable backImage;
 	private TableLayout mainTable;
@@ -60,16 +55,9 @@ public class CardsGameActivity extends Activity {
 						Constants.DEFAULT_GAME_TABLE_SIZE_COL));
 	}
 
-	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.menu, menu);
-		return true;
-	}
-
 	public void updateTurnsCaption() {
-		turnsCaption.setText(getString(R.string.turns_title_text) + " "
-				+ turns);
+		turnsCaption
+				.setText(getString(R.string.turns_title_text) + " " + turns);
 	}
 
 	public void newGame(int row, int col) {
@@ -89,7 +77,7 @@ public class CardsGameActivity extends Activity {
 	}
 
 	public void gameOver() {
-		Toast.makeText(this, "Žadimas baigtas!", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "Žadimas baigtas! ", Toast.LENGTH_SHORT).show();
 
 	}
 
