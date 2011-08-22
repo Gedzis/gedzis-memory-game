@@ -2,12 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
-	
-	<TextView android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:layout_gravity="center"
-		android:gravity="center" android:typeface="normal" android:bufferType="normal"
-		android:textColor="#FFEEAA" android:id="@+id/turns_caption"
-		android:text="@string/turns_title_text" />
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/game_window_header" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:padding="10dp">
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_gravity="center"
+			android:gravity="left" android:typeface="normal" android:bufferType="normal"
+			android:textColor="#FFEEAA" android:id="@+id/turns_caption"
+			android:text="@string/turns_title_text" />
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_gravity="center"
+			android:gravity="left" android:typeface="normal" android:bufferType="normal"
+			android:textColor="#FFEEAA" android:id="@+id/time_elapsed_caption"
+			android:text="@string/time_elapsed_title_text"
+			android:layout_toLeftOf="@+id/timmer" />
+
+
+		<Chronometer android:layout_width="wrap_content"
+			android:layout_alignParentRight="true" android:layout_height="wrap_content"
+			android:id="@+id/timmer" />
+	</RelativeLayout>
 	<TableLayout android:layout_width="fill_parent"
 		android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
 		android:id="@+id/game_table">

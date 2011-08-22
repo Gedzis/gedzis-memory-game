@@ -14,16 +14,19 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.AccelerateInterpolator;
+import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Chronometer.OnChronometerTickListener;
 
 public class CardsGameActivity extends BaseActivity {
 	private static Object lock = new Object();
@@ -40,6 +43,12 @@ public class CardsGameActivity extends BaseActivity {
 	int corretGuess;
 	private UpdateCardsHandler handler;
 
+	/** Timmer */
+	private Chronometer chrono;
+	long elapsedTime;
+	String currentTime = "";
+	long startTime = SystemClock.elapsedRealtime();
+
 	private TextView turnsCaption;
 
 	/** Called when the activity is first created. */
@@ -52,10 +61,24 @@ public class CardsGameActivity extends BaseActivity {
 		backImage = common.getBackImage(this);
 		buttonListener = new ButtonListener();
 		handler = new UpdateCardsHandler();
+		chrono = (Chronometer) findViewById(R.id.timmer);
+
 		newGame(getIntent().getIntExtra(Constants.GAME_TABLE_ROW,
 				Constants.DEFAULT_GAME_TABLE_SIZE_ROW), getIntent()
 				.getIntExtra(Constants.GAME_TABLE_COL,
 						Constants.DEFAULT_GAME_TABLE_SIZE_COL));
+
+		chrono.setOnChronometerTickListener(new OnChronometerTickListener() {
+
+			public void onChronometerTick(Chronometer arg0) {
+				elapsedTime = elapsedTime + 1000;
+				long minutes = ((elapsedTime) / 1000) / 60;
+				long seconds = ((elapsedTime) / 1000) % 60;
+				currentTime = (minutes < 10 ? "0" + minutes : minutes) + ":"
+						+ (seconds < 10 ? "0" + seconds : seconds);
+				arg0.setText(currentTime);
+			}
+		});
 	}
 
 	public void updateTurnsCaption() {
@@ -64,6 +87,10 @@ public class CardsGameActivity extends BaseActivity {
 	}
 
 	public void newGame(int row, int col) {
+		elapsedTime = 0;
+		chrono.setText("00:00");
+		chrono.setBase(SystemClock.elapsedRealtime());
+		chrono.start();
 		TABLE_COL_COUNT = col;
 		TABLE_ROW_COUNT = row;
 		gameTable = new int[TABLE_COL_COUNT][TABLE_ROW_COUNT];
@@ -80,6 +107,7 @@ public class CardsGameActivity extends BaseActivity {
 	}
 
 	public void gameOver() {
+		chrono.stop();
 		Toast.makeText(this, "Žadimas baigtas! ", Toast.LENGTH_SHORT).show();
 
 	}
@@ -143,7 +171,7 @@ public class CardsGameActivity extends BaseActivity {
 		// The animation listener is used to trigger the next animation
 		final Flip3dAnimation rotation = new Flip3dAnimation(start, end,
 				centerX, centerY);
-		rotation.setDuration(500);
+		rotation.setDuration(Constants.FLIP_DURATION_TIME);
 		rotation.setFillAfter(true);
 		rotation.setInterpolator(new AccelerateInterpolator());
 		rotation.setAnimationListener(new ChangeViewBackground(currentView,
@@ -195,7 +223,7 @@ public class CardsGameActivity extends BaseActivity {
 				};
 
 				Timer t = new Timer(false);
-				t.schedule(tt, 1300);
+				t.schedule(tt, Constants.TIMMER_TASK_DELAY);
 			}
 		}
 	}

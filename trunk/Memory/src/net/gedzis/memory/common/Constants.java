@@ -6,4 +6,6 @@ public class Constants {
 	public static final int DEFAULT_GAME_TABLE_SIZE_ROW = 3;
 	public static final String GAME_TABLE_COL = "game_table_col";
 	public static final String GAME_TABLE_ROW = "game_table_row";
+	public static final long FLIP_DURATION_TIME = 250;
+	public static final long TIMMER_TASK_DELAY = 1000;
 }
