@@ -40,7 +40,13 @@ public class BaseActivity extends Activity {
 			openNewGameDialog();
 			return true;
 			// More items go here (if any) ...
+		case R.id.menu_settings:
+			Intent settingsActivityIntent = new Intent(this,
+					GameSettingsActivity.class);
+			startActivity(settingsActivityIntent);
+			return true;
 		}
+
 		return false;
 	}
 
