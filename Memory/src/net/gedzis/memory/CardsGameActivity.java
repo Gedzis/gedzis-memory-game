@@ -6,6 +6,8 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import net.gedzis.memory.animation.ChangeViewBackground;
+import net.gedzis.memory.animation.Flip3dAnimation;
 import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.model.Card;
 import android.graphics.drawable.Drawable;
@@ -16,7 +18,8 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.view.animation.AccelerateInterpolator;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -92,7 +95,7 @@ public class CardsGameActivity extends BaseActivity {
 	}
 
 	private View createImageButton(int x, int y) {
-		Button button = new Button(mainTable.getContext());
+		ImageView button = new ImageView(mainTable.getContext());
 		button.setBackgroundDrawable(backImage);
 		button.setId(100 * x + y);
 		button.setOnClickListener(buttonListener);
@@ -130,6 +133,25 @@ public class CardsGameActivity extends BaseActivity {
 
 	}
 
+	private void applyRotation(ImageView currentView, Drawable imageToReplace,
+			float start, float end) {
+		// Find the center of image
+		final float centerX = currentView.getWidth() / 2.0f;
+		final float centerY = currentView.getHeight() / 2.0f;
+
+		// Create a new 3D rotation with the supplied parameter
+		// The animation listener is used to trigger the next animation
+		final Flip3dAnimation rotation = new Flip3dAnimation(start, end,
+				centerX, centerY);
+		rotation.setDuration(500);
+		rotation.setFillAfter(true);
+		rotation.setInterpolator(new AccelerateInterpolator());
+		rotation.setAnimationListener(new ChangeViewBackground(currentView,
+				imageToReplace));
+		currentView.startAnimation(rotation);
+
+	}
+
 	class ButtonListener implements OnClickListener {
 
 		public void onClick(View v) {
@@ -141,19 +163,20 @@ public class CardsGameActivity extends BaseActivity {
 				int id = v.getId();
 				int x = id / 100;
 				int y = id % 100;
-				turnCard((Button) v, x, y);
+				turnCard((ImageView) v, x, y);
 			}
 
 		}
 
-		private void turnCard(Button button, int x, int y) {
-			button.setBackgroundDrawable(images.get(gameTable[x][y]));
+		private void turnCard(ImageView button, int x, int y) {
 			if (firstCard == null) {
 				firstCard = new Card(button, x, y);
+				applyRotation(button, images.get(gameTable[x][y]), 0, 90);
 			} else {
-				if (firstCard.x == x && firstCard.y == y) {
+				if (firstCard.getX() == x && firstCard.getY() == y) {
 					return; // the user pressed the same card
 				}
+				applyRotation(button, images.get(gameTable[x][y]), 0, 90);
 				secondCard = new Card(button, x, y);
 				turns++;
 				updateTurnsCaption();
@@ -187,13 +210,14 @@ public class CardsGameActivity extends BaseActivity {
 		}
 
 		public void checkCards() {
-			if (gameTable[secondCard.x][secondCard.y] == gameTable[firstCard.x][firstCard.y]) {
-				firstCard.button.setVisibility(View.INVISIBLE);
-				secondCard.button.setVisibility(View.INVISIBLE);
+			if (gameTable[secondCard.getX()][secondCard.getY()] == gameTable[firstCard
+					.getX()][firstCard.getY()]) {
+				secondCard.getButton().setClickable(false);
+				firstCard.getButton().setClickable(false);
 				corretGuess++;
 			} else {
-				secondCard.button.setBackgroundDrawable(backImage);
-				firstCard.button.setBackgroundDrawable(backImage);
+				applyRotation(secondCard.getButton(), backImage, 0, 90);
+				applyRotation(firstCard.getButton(), backImage, 0, 90);
 			}
 			firstCard = null;
 			secondCard = null;
