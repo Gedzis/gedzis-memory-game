@@ -1,5 +1,6 @@
 package net.gedzis.memory.animation;
 
+import net.gedzis.memory.common.Constants;
 import android.graphics.drawable.Drawable;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
@@ -22,7 +23,7 @@ public class SwapBackgroundImages implements Runnable{
 		currentView.requestFocus();
 		rotation = new Flip3dAnimation(-90, 0, centerX, centerY);
 
-		rotation.setDuration(500);
+		rotation.setDuration(Constants.FLIP_DURATION_TIME);
 		rotation.setFillAfter(true);
 		rotation.setInterpolator(new DecelerateInterpolator());
 
