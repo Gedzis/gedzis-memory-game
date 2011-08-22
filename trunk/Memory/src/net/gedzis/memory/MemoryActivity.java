@@ -43,18 +43,18 @@ public class MemoryActivity extends Activity implements OnClickListener {
 		for (GameTable gt : gameTables) {
 			captions.add(gt.toString());
 		}
-		new AlertDialog.Builder(this).setTitle(
-				R.string.select_grid_size_caption).setItems(
-				captions.toArray(new CharSequence[captions.size()]),
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialoginterface, int i) {
-						startGame(i);
-					}
-				}).show();
+		new AlertDialog.Builder(this).setTitle(R.string.select_grid_size_title)
+				.setItems(captions.toArray(new CharSequence[captions.size()]),
+						new DialogInterface.OnClickListener() {
+							public void onClick(
+									DialogInterface dialoginterface, int i) {
+								startGame(i);
+							}
+						}).show();
 	}
 
 	public void startGame(int selected) {
-		Intent viewActivityIntent = new Intent(this, CardsActivity.class);
+		Intent viewActivityIntent = new Intent(this, CardsGameActivity.class);
 		viewActivityIntent.putExtra(Constants.GAME_TABLE_COL, gameTables.get(
 				selected).getColumns());
 		viewActivityIntent.putExtra(Constants.GAME_TABLE_ROW, gameTables.get(

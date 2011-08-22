@@ -16,6 +16,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -24,7 +26,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CardsActivity extends Activity {
+public class CardsGameActivity extends Activity {
 	private static Object lock = new Object();
 	private ButtonListener buttonListener;
 	private static int TABLE_ROW_COUNT = -1;
@@ -58,8 +60,15 @@ public class CardsActivity extends Activity {
 						Constants.DEFAULT_GAME_TABLE_SIZE_COL));
 	}
 
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu, menu);
+		return true;
+	}
+
 	public void updateTurnsCaption() {
-		turnsCaption.setText(getString(R.string.turns_caption_text) + " "
+		turnsCaption.setText(getString(R.string.turns_title_text) + " "
 				+ turns);
 	}
 

@@ -6,5 +6,5 @@
 		android:layout_height="wrap_content" android:text="@string/hello" />
 	<Button android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:id="@+id/new_game_button"
-		android:text="@string/new_game_button_caption_text" />
+		android:text="@string/new_game_button_title_text" />
 </LinearLayout>

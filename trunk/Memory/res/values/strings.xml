@@ -2,8 +2,10 @@
 <resources>
 	<string name="hello">Hello World, MemoryActivity!</string>
 	<string name="app_name">Memory</string>
-	<string name="turns_caption_text">Turns:</string>
-	<string name="new_game_button_caption_text">New Game</string>
-	<string name="select_grid_size_caption">Select grid size</string>
+	<string name="turns_title_text">Turns:</string>
+	<string name="new_game_button_title_text">New Game</string>
+	<string name="select_grid_size_title">Select grid size</string>
 
+	<string name="menu_item_new_game_title_text">New Game</string>
+	<string name="menu_item_setings_title_text">Game Setings</string>
 </resources>
