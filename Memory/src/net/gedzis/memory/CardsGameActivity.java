@@ -9,7 +9,9 @@ import java.util.TimerTask;
 import net.gedzis.memory.animation.ChangeViewBackground;
 import net.gedzis.memory.animation.Flip3dAnimation;
 import net.gedzis.memory.common.Constants;
+import net.gedzis.memory.dialog.GameOverDialog;
 import net.gedzis.memory.model.Card;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -113,6 +115,8 @@ public class CardsGameActivity extends BaseActivity {
 
 	public void gameOver() {
 		chrono.stop();
+		Dialog gameOverDialog = new GameOverDialog(this, turns, currentTime);
+		gameOverDialog.show();
 		Toast.makeText(this, "Žadimas baigtas! ", Toast.LENGTH_SHORT).show();
 
 	}
