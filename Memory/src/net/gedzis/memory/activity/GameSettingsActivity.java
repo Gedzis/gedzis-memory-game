@@ -1,5 +1,6 @@
-package net.gedzis.memory;
+package net.gedzis.memory.activity;
 
+import net.gedzis.memory.R;
 import net.gedzis.memory.common.Constants;
 import android.content.Context;
 import android.os.Bundle;

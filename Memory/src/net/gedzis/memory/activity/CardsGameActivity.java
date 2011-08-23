@@ -1,4 +1,4 @@
-package net.gedzis.memory;
+package net.gedzis.memory.activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import net.gedzis.memory.BaseActivity;
+import net.gedzis.memory.R;
 import net.gedzis.memory.animation.ChangeViewBackground;
 import net.gedzis.memory.animation.Flip3dAnimation;
 import net.gedzis.memory.common.Constants;

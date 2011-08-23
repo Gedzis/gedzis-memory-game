@@ -3,6 +3,8 @@ package net.gedzis.memory;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.gedzis.memory.activity.CardsGameActivity;
+import net.gedzis.memory.activity.GameSettingsActivity;
 import net.gedzis.memory.common.Common;
 import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.model.GameTable;
