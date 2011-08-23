@@ -6,6 +6,14 @@ public class PlayerScore {
 	private int time;
 	private String table;
 
+	public PlayerScore(String name, int turns, int time, String table) {
+		super();
+		this.name = name;
+		this.turns = turns;
+		this.time = time;
+		this.table = table;
+	}
+
 	public String getName() {
 		return name;
 	}

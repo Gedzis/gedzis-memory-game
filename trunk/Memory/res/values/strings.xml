@@ -6,6 +6,8 @@
 	<string name="time_elapsed_title_text">Elapsed time: </string>
 	<string name="new_game_button_title_text">New Game</string>
 	<string name="settings_button_title_text">Game Options</string>
+	<string name="local_highscore_button_title_text">Local high score</string>
+	
 	<string name="select_grid_size_title">Select grid size</string>
 	<string name="menu_item_new_game_title_text">New Game</string>
 	<string name="menu_item_setings_title_text">Game Setings</string>

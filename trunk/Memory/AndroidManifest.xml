@@ -12,7 +12,12 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".activity.CardsGameActivity" android:label="@string/app_name" />
-		<activity android:name=".activity.GameSettingsActivity" android:label="@string/app_name" />
+		<activity android:name=".activity.CardsGameActivity"
+			android:label="@string/app_name" />
+		<activity android:name=".activity.LocalHighScoreActivity"
+			android:label="@string/app_name" />
+
+		<activity android:name=".activity.GameSettingsActivity"
+			android:label="@string/app_name" />
 	</application>
 </manifest>

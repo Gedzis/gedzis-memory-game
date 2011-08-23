@@ -5,4 +5,20 @@
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
     
+    <TextView android:id="@+id/local_highscore_place" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_gravity="center"
+			android:text="place"
+			/>
+			<TextView android:id="@+id/local_highscore_name" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_gravity="center"
+			android:text="name"
+			/>
+			 <TextView android:id="@+id/local_highscore_turns" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_gravity="center"
+			android:text="turns"
+			/>
+			 <TextView android:id="@+id/local_highscore_time" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_gravity="center"
+			android:text="time"
+			/>
 </LinearLayout>
