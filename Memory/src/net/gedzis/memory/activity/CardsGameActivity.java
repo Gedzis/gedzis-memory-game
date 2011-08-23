@@ -36,6 +36,7 @@ import android.widget.Chronometer.OnChronometerTickListener;
 import android.widget.ImageView.ScaleType;
 
 public class CardsGameActivity extends BaseActivity {
+
 	private static Object lock = new Object();
 	private ButtonListener buttonListener;
 	private static int TABLE_ROW_COUNT = -1;
@@ -73,18 +74,17 @@ public class CardsGameActivity extends BaseActivity {
 		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
 		newGame(getIntent().getIntExtra(Constants.GAME_TABLE_ROW,
-				Constants.DEFAULT_GAME_TABLE_SIZE_ROW), getIntent()
-				.getIntExtra(Constants.GAME_TABLE_COL,
+				Constants.DEFAULT_GAME_TABLE_SIZE_ROW),
+				getIntent().getIntExtra(Constants.GAME_TABLE_COL,
 						Constants.DEFAULT_GAME_TABLE_SIZE_COL));
 
 		chrono.setOnChronometerTickListener(new OnChronometerTickListener() {
 
 			public void onChronometerTick(Chronometer arg0) {
 				elapsedTime = elapsedTime + 1000;
-				long minutes = ((elapsedTime) / 1000) / 60;
-				long seconds = ((elapsedTime) / 1000) % 60;
-				currentTime = (minutes < 10 ? "0" + minutes : minutes) + ":"
-						+ (seconds < 10 ? "0" + seconds : seconds);
+				long minutes = common.getMinutesValue(elapsedTime);
+				long seconds = common.getSecondsValue(elapsedTime);
+				currentTime = common.timeToString(minutes, seconds);
 				arg0.setText(currentTime);
 			}
 		});

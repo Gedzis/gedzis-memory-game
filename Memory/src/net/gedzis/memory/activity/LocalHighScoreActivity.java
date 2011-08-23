@@ -11,7 +11,6 @@ import android.os.Bundle;
 
 public class LocalHighScoreActivity extends ListActivity {
 	/** Called when the activity is first created. */
-	@SuppressWarnings("unused")
 	private List<PlayerScore> players;
 	private HighScoreArrayAdapter highScoreArrayAdapter;
 

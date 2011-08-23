@@ -56,4 +56,17 @@ public class Common {
 		return new GameTable(col, row);
 	}
 
+	public long getMinutesValue(long elapsedTime) {
+		return ((elapsedTime) / 1000) / 60;
+	}
+
+	public long getSecondsValue(long elapsedTime) {
+		return ((elapsedTime) / 1000) % 60;
+	}
+
+	public String timeToString(long minutes, long seconds) {
+		return (minutes < 10 ? "0" + minutes : minutes) + ":"
+				+ (seconds < 10 ? "0" + seconds : seconds);
+	}
+
 }

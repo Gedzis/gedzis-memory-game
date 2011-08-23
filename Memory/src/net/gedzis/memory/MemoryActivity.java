@@ -1,6 +1,7 @@
 package net.gedzis.memory;
 
 import net.gedzis.memory.activity.GameSettingsActivity;
+import net.gedzis.memory.activity.LocalHighScoreActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,8 @@ public class MemoryActivity extends BaseActivity implements OnClickListener {
 		newButton.setOnClickListener(this);
 		View settingsButton = findViewById(R.id.settings_button);
 		settingsButton.setOnClickListener(this);
+		View localHistoryButton = findViewById(R.id.local_highscore_button);
+		localHistoryButton.setOnClickListener(this);
 	}
 
 	public void onClick(View v) {
@@ -26,6 +29,9 @@ public class MemoryActivity extends BaseActivity implements OnClickListener {
 			break;
 		case R.id.settings_button:
 			startActivity(new Intent(this, GameSettingsActivity.class));
+			break;
+		case R.id.local_highscore_button:
+			startActivity(new Intent(this, LocalHighScoreActivity.class));
 			break;
 		}
 	}
