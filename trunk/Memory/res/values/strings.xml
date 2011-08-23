@@ -2,7 +2,7 @@
 <resources>
 	<string name="hello">Memory Game</string>
 	<string name="app_name">Memory</string>
-	<string name="turns_title_text">Turns:</string>
+	<string name="turns_title_text">Turns: </string>
 	<string name="time_elapsed_title_text">Elapsed time: </string>
 	<string name="new_game_button_title_text">New Game</string>
 	<string name="settings_button_title_text">Game Options</string>
@@ -11,4 +11,7 @@
 	<string name="menu_item_setings_title_text">Game Setings</string>
 	<string name="settings_vibration_title">Vibrate</string>
 	<string name="settings_vibration_summary">Enable Vibration</string>
+		<string name="game_over_dialog_title">Game Over</string>
+		<string name="game_over_button_submit_score_local">Submit highscore</string>
+		<string name="game_over_button_close">Close</string>
 </resources>
