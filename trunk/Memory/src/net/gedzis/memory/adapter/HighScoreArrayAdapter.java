@@ -3,6 +3,7 @@ package net.gedzis.memory.adapter;
 import java.util.List;
 
 import net.gedzis.memory.R;
+import net.gedzis.memory.common.Common;
 import net.gedzis.memory.model.PlayerScore;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 public class HighScoreArrayAdapter extends ArrayAdapter<PlayerScore> {
+	public Common common = new Common();
 	private Context context;
 	private List<PlayerScore> highscores;
 	private int place = 0;
@@ -33,6 +35,7 @@ public class HighScoreArrayAdapter extends ArrayAdapter<PlayerScore> {
 		}
 		PlayerScore o = highscores.get(position);
 		if (o != null) {
+			place++;
 			TextView highScorePlace = (TextView) v
 					.findViewById(R.id.local_highscore_place);
 			TextView highScoreName = (TextView) v
@@ -48,10 +51,12 @@ public class HighScoreArrayAdapter extends ArrayAdapter<PlayerScore> {
 				highScoreName.setText(o.getName());
 			}
 			if (highScoreTurns != null) {
-				highScoreTurns.setText(o.getTurns());
+				highScoreTurns.setText(Integer.toString(o.getTurns()));
 			}
 			if (highScoreTime != null) {
-				highScoreTime.setText(o.getTime());
+				highScoreTime.setText(common.timeToString(
+						common.getMinutesValue(o.getTime()),
+						common.getSecondsValue(o.getTime())));
 			}
 		}
 		return v;
