@@ -6,6 +6,7 @@ import java.util.List;
 import net.gedzis.memory.R;
 import net.gedzis.memory.adapter.HighScoreArrayAdapter;
 import net.gedzis.memory.model.PlayerScore;
+import net.gedzis.memory.parser.LocalMemoryXMLParser;
 import android.app.ListActivity;
 import android.os.Bundle;
 
@@ -18,7 +19,9 @@ public class LocalHighScoreActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.high_score_local_layout);
-		players = getPlayersDemo();
+		LocalMemoryXMLParser localMemoryXMLParser = new LocalMemoryXMLParser();
+
+		players = localMemoryXMLParser.parseFile();
 		highScoreArrayAdapter = new HighScoreArrayAdapter(this,
 				R.layout.high_score_element, players);
 		// ArrayAdapter<RecordsJsonObject> adapter = new
@@ -37,6 +40,7 @@ public class LocalHighScoreActivity extends ListActivity {
 		players.add(new PlayerScore("Vardas", 5, 34, "table"));
 		players.add(new PlayerScore("Vardas", 5, 34, "table"));
 		players.add(new PlayerScore("Vardas", 5, 34, "table"));
+
 		return players;
 	}
 }

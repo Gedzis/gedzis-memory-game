@@ -1,61 +1,90 @@
 package net.gedzis.memory.parser;
 
-import java.io.File;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.model.PlayerScore;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
 public class LocalMemoryXMLParser {
-
 	public List<PlayerScore> getLocalHighScoreRecords() {
-		return null;
+		return parseFile();
 	}
 
-	public void parseFile() {
+	public List<PlayerScore> parseFile() {
+		List<PlayerScore> playerScores = new ArrayList<PlayerScore>();
 		// http://www.java-tips.org/java-se-tips/javax.xml.parsers/how-to-read-xml-file-in-java.html
 		try {
-			File file = new File("c:\\MyXMLFile.xml");
+			URL sourceUrl = new URL("http://gedzis.net/database.xml");
+			// File file = new File("c:\\MyXMLFile.xml");
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document doc = db.parse(file);
+			Document doc = db.parse(new InputSource(sourceUrl.openStream()));
 			doc.getDocumentElement().normalize();
-			System.out.println("Root element "
-					+ doc.getDocumentElement().getNodeName());
-			NodeList nodeLst = doc.getElementsByTagName("employee");
-			System.out.println("Information of all employees");
+			NodeList tableNodes = doc
+					.getElementsByTagName(Constants.LOCAL_HIGH_SCORE_TABLE_TAG);
+			System.out.println("Information of all employees "
+					+ tableNodes.getLength());
+			for (int s = 0; s < tableNodes.getLength(); s++) {
 
-			for (int s = 0; s < nodeLst.getLength(); s++) {
+				Node tableNode = tableNodes.item(s);
+				if (tableNode.getNodeType() == Node.ELEMENT_NODE) {
+					Element tableElement = (Element) tableNode;
+					NodeList playerNodes = tableElement
+							.getElementsByTagName(Constants.LOCAL_HIGH_SCORE_PLAYER_TAG);
+					for (int i = 0; i < playerNodes.getLength(); i++) {
+						PlayerScore playerScore = new PlayerScore();
+						playerScore
+								.setTable(tableNode
+										.getAttributes()
+										.getNamedItem(
+												Constants.LOCAL_HIGH_SCORE_TABLE_TYPE_TAG)
+										.getNodeValue());
+						Node playerNode = playerNodes.item(i);
+						if (playerNode.getNodeType() == Node.ELEMENT_NODE) {
+							Element playerElement = (Element) playerNode;
+							playerScore
+									.setName(getPlayerNodeValue(
+											playerElement,
+											Constants.LOCAL_HIGH_SCORE_PLAYER_NAME_TAG));
+							playerScore
+									.setTime(Integer
+											.parseInt(getPlayerNodeValue(
+													playerElement,
+													Constants.LOCAL_HIGH_SCORE_PLAYER_TIME_TAG)));
+							playerScore
+									.setTurns(Integer
+											.parseInt(getPlayerNodeValue(
+													playerElement,
+													Constants.LOCAL_HIGH_SCORE_PLAYER_TURNS_TAG)));
+						}
+						playerScores.add(playerScore);
+					}
 
-				Node fstNode = nodeLst.item(s);
-
-				if (fstNode.getNodeType() == Node.ELEMENT_NODE) {
-
-					Element fstElmnt = (Element) fstNode;
-					NodeList fstNmElmntLst = fstElmnt
-							.getElementsByTagName("firstname");
-					Element fstNmElmnt = (Element) fstNmElmntLst.item(0);
-					NodeList fstNm = fstNmElmnt.getChildNodes();
-					System.out.println("First Name : "
-							+ ((Node) fstNm.item(0)).getNodeValue());
-					NodeList lstNmElmntLst = fstElmnt
-							.getElementsByTagName("lastname");
-					Element lstNmElmnt = (Element) lstNmElmntLst.item(0);
-					NodeList lstNm = lstNmElmnt.getChildNodes();
-					System.out.println("Last Name : "
-							+ ((Node) lstNm.item(0)).getNodeValue());
 				}
-
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return playerScores;
+	}
+
+	private String getPlayerNodeValue(Element element, String tag) {
+		NodeList nodeList = element.getElementsByTagName(tag);
+		Element firstElement = (Element) nodeList.item(0);
+		NodeList firstElementNodeList = firstElement.getChildNodes();
+		System.out.println(tag + " "
+				+ ((Node) firstElementNodeList.item(0)).getNodeValue());
+		return ((Node) firstElementNodeList.item(0)).getNodeValue();
 	}
 }
