@@ -11,4 +11,12 @@ public class Constants {
 	public static final String SETTINGS_VIBRATE = "vibrate";
 	public static final boolean SETTINGS_VIBRATE_DEFAULT = true;
 	public static long VIBRATE_ITENSITY = 50;
+
+	public static String LOCAL_HIGH_SCORE_TAG = "highscore";
+	public static String LOCAL_HIGH_SCORE_TABLE_TYPE_TAG = "type";
+	public static String LOCAL_HIGH_SCORE_TABLE_TAG = "table";
+	public static String LOCAL_HIGH_SCORE_PLAYER_TAG = "player";
+	public static String LOCAL_HIGH_SCORE_PLAYER_NAME_TAG = "name";
+	public static String LOCAL_HIGH_SCORE_PLAYER_TURNS_TAG = "turns";
+	public static String LOCAL_HIGH_SCORE_PLAYER_TIME_TAG = "time";
 }

@@ -6,6 +6,10 @@ public class PlayerScore {
 	private int time;
 	private String table;
 
+	public PlayerScore() {
+		super();
+	}
+
 	public PlayerScore(String name, int turns, int time, String table) {
 		super();
 		this.name = name;
