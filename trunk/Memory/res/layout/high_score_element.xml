@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="wrap_content"
-	android:orientation="horizontal">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent" android:layout_width="fill_parent">
 
 	<TextView android:id="@+id/local_highscore_place"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="place" />
+		android:text="place" android:paddingRight="25dp" android:paddingLeft="10dp"
+		android:gravity="center" />
 	<TextView android:id="@+id/local_highscore_name"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="name" />
+		android:gravity="center" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="name"
+		android:paddingRight="70dp" android:layout_toRightOf="@+id/local_highscore_place" />
 	<TextView android:id="@+id/local_highscore_turns"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="turns" />
+		android:gravity="center" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="turns"
+		android:paddingRight="25dp" android:layout_toRightOf="@+id/local_highscore_name" />
 	<TextView android:id="@+id/local_highscore_time"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="time" />
-</LinearLayout>
+		android:gravity="center" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="time"
+		android:layout_alignParentRight="true" android:paddingRight="10dp" />
+</RelativeLayout>
