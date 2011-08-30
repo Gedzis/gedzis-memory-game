@@ -54,7 +54,7 @@ public class LocalHighScoreActivity extends BaseActivity {
 
 		List<String> tableIds = common.getGameTableIDs();
 		LinearLayout layout = (LinearLayout) findViewById(R.id.high_score_layout);
-		View header = findViewById(R.id.list_header);
+		//View header = findViewById(R.id.list_header);
 		for (String id : tableIds) {
 			TextView tableCaption = new TextView(layout.getContext());
 			tableCaption.setText(id);
@@ -63,7 +63,7 @@ public class LocalHighScoreActivity extends BaseActivity {
 					R.layout.high_score_element, common
 							.getCurrentTableHighScore(players, id));
 			list.setAdapter(highScoreArrayAdapter);
-			layout.addView(header);
+		//	layout.addView(header);
 			layout.addView(tableCaption);
 			layout.addView(list);
 		}
