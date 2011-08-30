@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.gedzis.memory.R;
 import net.gedzis.memory.model.GameTable;
+import net.gedzis.memory.model.PlayerScore;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
@@ -47,8 +48,16 @@ public class Common {
 		gameTables.add(createNewGameTable(2, 3));
 		gameTables.add(createNewGameTable(3, 4));
 		gameTables.add(createNewGameTable(4, 4));
-		gameTables.add(createNewGameTable(6, 6));
+		gameTables.add(createNewGameTable(5, 4));
 		return gameTables;
+	}
+
+	public List<String> getGameTableIDs() {
+		List<String> ids = new ArrayList<String>();
+		for (GameTable gt : getGameTables()) {
+			ids.add(gt.getColumns() + "x" + gt.getRows());
+		}
+		return ids;
 	}
 
 	protected GameTable createNewGameTable(int col, int row) {
@@ -67,6 +76,17 @@ public class Common {
 	public String timeToString(long minutes, long seconds) {
 		return (minutes < 10 ? "0" + minutes : minutes) + ":"
 				+ (seconds < 10 ? "0" + seconds : seconds);
+	}
+
+	public List<PlayerScore> getCurrentTableHighScore(
+			List<PlayerScore> players, String tableID) {
+		List<PlayerScore> tableScores = new ArrayList<PlayerScore>();
+		for (PlayerScore score : players) {
+			if (score.getTable().equals(tableID)) {
+				tableScores.add(score);
+			}
+		}
+		return tableScores;
 	}
 
 }
