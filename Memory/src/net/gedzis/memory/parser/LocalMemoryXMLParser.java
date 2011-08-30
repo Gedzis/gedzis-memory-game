@@ -14,14 +14,15 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
+
+import android.content.Context;
 
 public class LocalMemoryXMLParser {
-	public List<PlayerScore> getLocalHighScoreRecords() {
-		return parseFile();
+	public List<PlayerScore> getLocalHighScoreRecords(Context context) {
+		return parseFile(context);
 	}
 
-	public List<PlayerScore> parseFile() {
+	public List<PlayerScore> parseFile(Context context) {
 		List<PlayerScore> playerScores = new ArrayList<PlayerScore>();
 		// http://www.java-tips.org/java-se-tips/javax.xml.parsers/how-to-read-xml-file-in-java.html
 		try {
@@ -29,7 +30,8 @@ public class LocalMemoryXMLParser {
 			// File file = new File("c:\\MyXMLFile.xml");
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document doc = db.parse(new InputSource(sourceUrl.openStream()));
+			Document doc = db.parse(context
+					.openFileInput(Constants.LOCAL_HIGH_SCORE_FILENAME));
 			doc.getDocumentElement().normalize();
 			NodeList tableNodes = doc
 					.getElementsByTagName(Constants.LOCAL_HIGH_SCORE_TABLE_TAG);
