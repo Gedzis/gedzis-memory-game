@@ -12,6 +12,7 @@ public class Constants {
 	public static final boolean SETTINGS_VIBRATE_DEFAULT = true;
 	public static long VIBRATE_ITENSITY = 50;
 
+	public static int LOCAL_HIGH_SCORE_AMOUNT_FOR_TABLE = 3;
 	public static String LOCAL_HIGH_SCORE_FILENAME = "highscore.xml";
 	public static String LOCAL_HIGH_SCORE_TAG = "highscore";
 	public static String LOCAL_HIGH_SCORE_TABLE_TYPE_TAG = "type";
