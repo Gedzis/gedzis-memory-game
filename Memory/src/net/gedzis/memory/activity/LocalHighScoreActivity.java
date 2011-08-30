@@ -6,8 +6,10 @@ import java.util.List;
 import net.gedzis.memory.BaseActivity;
 import net.gedzis.memory.R;
 import net.gedzis.memory.adapter.HighScoreArrayAdapter;
-import net.gedzis.memory.handler.LocalHighScoreOutputHandler;
+import net.gedzis.memory.database.Database;
+import net.gedzis.memory.database.DatabaseCommon;
 import net.gedzis.memory.model.PlayerScore;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -36,14 +38,15 @@ public class LocalHighScoreActivity extends BaseActivity {
 	/** Called when the activity is first created. */
 	private List<PlayerScore> players;
 	private HighScoreArrayAdapter highScoreArrayAdapter;
+	private Database database;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		database = new Database(this);
+		database.open();
 		setContentView(R.layout.high_score_local_layout);
-		players = getPlayersDemo();
-		LocalHighScoreOutputHandler handler = new LocalHighScoreOutputHandler();
-		handler.saveScore(players, this);
+		players = getDBRecords();
 
 		// LocalMemoryXMLParser localMemoryXMLParser = new
 		// LocalMemoryXMLParser();
@@ -59,21 +62,18 @@ public class LocalHighScoreActivity extends BaseActivity {
 					+ id);
 			ListView list = new ListView(layout.getContext());
 			highScoreArrayAdapter = new HighScoreArrayAdapter(this,
-					R.layout.high_score_element, common
-							.getCurrentTableHighScore(players, id));
+					R.layout.high_score_element,
+					common.getCurrentTableHighScore(players, id));
 			list.setAdapter(highScoreArrayAdapter);
 			layout.addView(tableCaption);
 			layout.addView(list);
 		}
 
-		// ListView list2x2 = (ListView) findViewById(R.id.high_score_2x2_list);
-		// list2x2.setAdapter(highScoreArrayAdapter);
-		//
-		// highScoreArrayAdapter = new HighScoreArrayAdapter(this,
-		// R.layout.high_score_element, common.getCurrentTableHighScore(
-		// players, "3x3"));
-		// ListView list3x3 = (ListView) findViewById(R.id.high_score_3x3_list);
-		// list3x3.setAdapter(highScoreArrayAdapter);
+	}
+
+	public List<PlayerScore> getDBRecords() {
+		Cursor c = database.getScores();
+		return DatabaseCommon.getPlayerScoreList(c);
 	}
 
 	public List<PlayerScore> getPlayersDemo() {

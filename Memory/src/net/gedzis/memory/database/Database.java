@@ -48,7 +48,13 @@ public class Database {
 		}
 	}
 
-	public Cursor getScores(String tableId) {
+	public Cursor getScores() {
+		Cursor c = db.query(DatabaseConstants.LOCAL_HIGH_SCORE_TABLE_NAME,
+				null, null, null, null, null, null);
+		return c;
+	}
+
+	public Cursor getTableScore(String tableId) {
 		Cursor c = db.query(DatabaseConstants.LOCAL_HIGH_SCORE_TABLE_NAME,
 				null, null, null, null, null, null);
 		return c;

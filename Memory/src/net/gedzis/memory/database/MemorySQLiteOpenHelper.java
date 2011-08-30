@@ -15,8 +15,6 @@ public class MemorySQLiteOpenHelper extends SQLiteOpenHelper {
 
 	private static final String LOG_TAG = "memory-db";
 
-	private Context context;
-
 	// public MemorySQLiteOpenHelper(Context context) {
 	// super(context, DatabaseConstants.DATABASE_NAME, null,
 	// DatabaseConstants.DATABASE_VERSION);
@@ -27,6 +25,11 @@ public class MemorySQLiteOpenHelper extends SQLiteOpenHelper {
 	// Object object, int databaseVersion) {
 	// // TODO Auto-generated constructor stub
 	// }
+
+	@Override
+	public void onOpen(SQLiteDatabase db) {
+		super.onOpen(db);
+	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
