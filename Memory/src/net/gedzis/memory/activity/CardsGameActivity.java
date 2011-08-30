@@ -117,7 +117,9 @@ public class CardsGameActivity extends BaseActivity {
 
 	public void gameOver() {
 		chrono.stop();
-		Dialog gameOverDialog = new GameOverDialog(this, turns, currentTime);
+
+		Dialog gameOverDialog = new GameOverDialog(this, turns, elapsedTime,
+				common.generateTableId(TABLE_COL_COUNT, TABLE_ROW_COUNT));
 		gameOverDialog.show();
 		Toast.makeText(this, "Žadimas baigtas! ", Toast.LENGTH_SHORT).show();
 

@@ -68,6 +68,7 @@ public class LocalHighScoreActivity extends BaseActivity {
 			layout.addView(tableCaption);
 			layout.addView(list);
 		}
+		database.close();
 
 	}
 

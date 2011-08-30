@@ -39,7 +39,7 @@ public class Database {
 			newTaskValue.put("name", playerScore.getName());
 			newTaskValue.put("turns", playerScore.getName());
 			newTaskValue.put("time", playerScore.getTime());
-			newTaskValue.put("table", playerScore.getTable());
+			newTaskValue.put("tableid", playerScore.getTable());
 			return db.insert(DatabaseConstants.LOCAL_HIGH_SCORE_TABLE_NAME,
 					null, newTaskValue);
 		} catch (SQLiteException ex) {

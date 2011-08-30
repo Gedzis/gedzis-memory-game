@@ -12,9 +12,9 @@ public class DatabaseCommon {
 		if (c.moveToFirst()) {
 			do {
 				String name = c.getString(c.getColumnIndex("name"));
-				String table = c.getString(c.getColumnIndex("table"));
+				String table = c.getString(c.getColumnIndex("tableid"));
 				int turns = c.getInt(c.getColumnIndex("turns"));
-				int time = c.getInt(c.getColumnIndex("time"));
+				long time = c.getLong(c.getColumnIndex("time"));
 				scores.add(new PlayerScore(name, turns, time, table));
 			} while (c.moveToNext());
 		}
