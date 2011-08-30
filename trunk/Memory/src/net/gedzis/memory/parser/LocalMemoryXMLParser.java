@@ -1,6 +1,5 @@
 package net.gedzis.memory.parser;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class LocalMemoryXMLParser {
 		List<PlayerScore> playerScores = new ArrayList<PlayerScore>();
 		// http://www.java-tips.org/java-se-tips/javax.xml.parsers/how-to-read-xml-file-in-java.html
 		try {
-			URL sourceUrl = new URL("http://gedzis.net/database.xml");
+			// URL sourceUrl = new URL("http://gedzis.net/database.xml");
 			// File file = new File("c:\\MyXMLFile.xml");
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
@@ -89,4 +88,5 @@ public class LocalMemoryXMLParser {
 				+ ((Node) firstElementNodeList.item(0)).getNodeValue());
 		return ((Node) firstElementNodeList.item(0)).getNodeValue();
 	}
+
 }
