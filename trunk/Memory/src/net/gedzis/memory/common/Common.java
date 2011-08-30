@@ -55,9 +55,13 @@ public class Common {
 	public List<String> getGameTableIDs() {
 		List<String> ids = new ArrayList<String>();
 		for (GameTable gt : getGameTables()) {
-			ids.add(gt.getColumns() + "x" + gt.getRows());
+			ids.add(generateTableId(gt.getColumns(), gt.getRows()));
 		}
 		return ids;
+	}
+
+	public String generateTableId(int col, int row) {
+		return col + "x" + row;
 	}
 
 	protected GameTable createNewGameTable(int col, int row) {

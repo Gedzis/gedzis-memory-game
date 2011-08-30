@@ -7,7 +7,7 @@ public class DatabaseConstants {
 	public static String LOCAL_HIGH_SCORE_TABLE_CREATE = "CREATE TABLE "
 			+ LOCAL_HIGH_SCORE_TABLE_NAME + "("
 			+ "name          TEXT NOT NULL, "
-			+ "tablesa          TEXT NOT NULL, "
+			+ "tableid          TEXT NOT NULL, "
 			+ "turns                 INTEGER NOT NULL, "
 			+ "time                 INTEGER NOT NULL );";
 

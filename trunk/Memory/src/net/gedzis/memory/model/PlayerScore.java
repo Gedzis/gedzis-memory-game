@@ -3,14 +3,14 @@ package net.gedzis.memory.model;
 public class PlayerScore {
 	private String name;
 	private int turns;
-	private int time;
+	private long time;
 	private String table;
 
 	public PlayerScore() {
 		super();
 	}
 
-	public PlayerScore(String name, int turns, int time, String table) {
+	public PlayerScore(String name, int turns, long time, String table) {
 		super();
 		this.name = name;
 		this.turns = turns;
@@ -34,11 +34,11 @@ public class PlayerScore {
 		this.turns = turns;
 	}
 
-	public int getTime() {
+	public long getTime() {
 		return time;
 	}
 
-	public void setTime(int time) {
+	public void setTime(long time) {
 		this.time = time;
 	}
 
