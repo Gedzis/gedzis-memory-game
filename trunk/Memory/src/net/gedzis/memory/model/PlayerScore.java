@@ -1,5 +1,5 @@
 package net.gedzis.memory.model;
-
+//http://www.i-coding.de/www/en/java/list/sorting.html
 public class PlayerScore {
 	private String name;
 	private int turns;

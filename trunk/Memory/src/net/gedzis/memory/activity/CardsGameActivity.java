@@ -195,6 +195,23 @@ public class CardsGameActivity extends BaseActivity {
 
 	}
 
+	private void hideOnRotation(ImageView currentView, Drawable imageToReplace,
+			float start, float end) {
+		// Find the center of image
+		final float centerX = currentView.getWidth() / 2.0f;
+		final float centerY = currentView.getHeight() / 2.0f;
+
+		// Create a new 3D rotation with the supplied parameter
+		// The animation listener is used to trigger the next animation
+		final Flip3dAnimation rotation = new Flip3dAnimation(start, end,
+				centerX, centerY);
+		rotation.setDuration(Constants.FLIP_DURATION_TIME);
+		rotation.setFillAfter(true);
+		rotation.setInterpolator(new AccelerateInterpolator());
+		currentView.startAnimation(rotation);
+
+	}
+
 	class ButtonListener implements OnClickListener {
 
 		public void onClick(View v) {
@@ -257,6 +274,8 @@ public class CardsGameActivity extends BaseActivity {
 					.getX()][firstCard.getY()]) {
 				secondCard.getButton().setClickable(false);
 				firstCard.getButton().setClickable(false);
+				hideOnRotation(secondCard.getButton(), backImage, 0, 90);
+				hideOnRotation(firstCard.getButton(), backImage, 0, 90);
 				corretGuess++;
 				vibrator.vibrate(getVibrationIntensity());
 			} else {

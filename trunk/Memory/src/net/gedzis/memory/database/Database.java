@@ -37,7 +37,7 @@ public class Database {
 		try {
 			ContentValues newTaskValue = new ContentValues();
 			newTaskValue.put("name", playerScore.getName());
-			newTaskValue.put("turns", playerScore.getName());
+			newTaskValue.put("turns", playerScore.getTurns());
 			newTaskValue.put("time", playerScore.getTime());
 			newTaskValue.put("tableid", playerScore.getTable());
 			return db.insert(DatabaseConstants.LOCAL_HIGH_SCORE_TABLE_NAME,
