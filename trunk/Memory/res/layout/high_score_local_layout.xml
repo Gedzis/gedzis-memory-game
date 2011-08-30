@@ -2,9 +2,27 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="wrap_content" android:layout_width="fill_parent"
+		android:id="@+id/list_header2">
 
+		<TextView android:id="@+id/local_highscore_place"
+			android:layout_width="50dp" android:layout_height="wrap_content"
+			android:text="place" android:layout_marginLeft="10dp" />
+		<TextView android:id="@+id/local_highscore_name"
+			android:layout_height="wrap_content" android:text="name"
+			android:layout_width="100dp" android:layout_toRightOf="@+id/local_highscore_place" />
+		<TextView android:id="@+id/local_highscore_turns"
+			android:layout_width="50dp" android:layout_height="wrap_content"
+			android:text="turns" android:layout_toRightOf="@+id/local_highscore_name" />
+		<TextView android:id="@+id/local_highscore_time"
+			android:layout_width="50dp" android:layout_height="wrap_content"
+			android:text="time" android:layout_alignParentRight="true"
+			android:paddingRight="10dp" />
+	</RelativeLayout>
 
-	<LinearLayout android:id="@+id/high_score_layout" xmlns:android="http://schemas.android.com/apk/res/android"
+	<LinearLayout android:id="@+id/high_score_layout"
+		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:orientation="vertical" android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:layout_below="@+id/listTitles">
 		<TextView android:id="@+id/local_highscore_time"

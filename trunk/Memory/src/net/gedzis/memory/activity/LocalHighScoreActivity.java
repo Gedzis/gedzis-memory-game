@@ -8,10 +8,7 @@ import net.gedzis.memory.R;
 import net.gedzis.memory.adapter.HighScoreArrayAdapter;
 import net.gedzis.memory.handler.LocalHighScoreOutputHandler;
 import net.gedzis.memory.model.PlayerScore;
-import android.app.LauncherActivity;
 import android.os.Bundle;
-import android.text.Layout;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -54,16 +51,17 @@ public class LocalHighScoreActivity extends BaseActivity {
 
 		List<String> tableIds = common.getGameTableIDs();
 		LinearLayout layout = (LinearLayout) findViewById(R.id.high_score_layout);
-		//View header = findViewById(R.id.list_header);
+		// RelativeLayout header = (RelativeLayout)
+		// findViewById(R.id.list_header2);
 		for (String id : tableIds) {
 			TextView tableCaption = new TextView(layout.getContext());
-			tableCaption.setText(id);
+			tableCaption.setText(getText(R.string.local_highscore_list_caption)
+					+ id);
 			ListView list = new ListView(layout.getContext());
 			highScoreArrayAdapter = new HighScoreArrayAdapter(this,
 					R.layout.high_score_element, common
 							.getCurrentTableHighScore(players, id));
 			list.setAdapter(highScoreArrayAdapter);
-		//	layout.addView(header);
 			layout.addView(tableCaption);
 			layout.addView(list);
 		}
@@ -80,11 +78,30 @@ public class LocalHighScoreActivity extends BaseActivity {
 
 	public List<PlayerScore> getPlayersDemo() {
 		List<PlayerScore> players = new ArrayList<PlayerScore>();
-		players.add(new PlayerScore("Tomas", 5, 34, "2x2"));
-		players.add(new PlayerScore("Marius", 5, 34, "3x3"));
-		players.add(new PlayerScore("Jonas", 5, 34, "2x2"));
-		players.add(new PlayerScore("Saulius", 5, 6666, "3x3"));
-		players.add(new PlayerScore("Mindaugas", 5, 34, "2x2"));
+		players.add(new PlayerScore("Tomas1", 5, 34, "1x2"));
+		players.add(new PlayerScore("Marius1", 5, 34, "2x2"));
+		players.add(new PlayerScore("Jonas1", 5, 34, "2x3"));
+		players.add(new PlayerScore("Saulius1", 5, 6666, "3x4"));
+		players.add(new PlayerScore("Mindaugas1", 5, 34, "4x4"));
+		players.add(new PlayerScore("Tomas1", 5, 34, "5x4"));
+		players.add(new PlayerScore("Tomas2", 5, 34, "1x2"));
+		players.add(new PlayerScore("Marius2", 5, 34, "2x2"));
+		players.add(new PlayerScore("Jonas2", 5, 34, "2x3"));
+		players.add(new PlayerScore("Saulius2", 5, 6666, "3x4"));
+		players.add(new PlayerScore("Mindaugas2", 5, 34, "4x4"));
+		players.add(new PlayerScore("Tomas2", 5, 34, "5x4"));
+		players.add(new PlayerScore("Tomas3", 5, 34, "1x2"));
+		players.add(new PlayerScore("Marius3", 5, 34, "2x2"));
+		players.add(new PlayerScore("Jonas3", 5, 34, "2x3"));
+		players.add(new PlayerScore("Saulius3", 5, 6666, "3x4"));
+		players.add(new PlayerScore("Mindaugas3", 5, 34, "4x4"));
+		players.add(new PlayerScore("Tomas3", 5, 34, "5x4"));
+		players.add(new PlayerScore("Tomas4", 5, 34, "1x2"));
+		players.add(new PlayerScore("Marius4", 5, 34, "2x2"));
+		players.add(new PlayerScore("Jonas4", 5, 34, "2x3"));
+		players.add(new PlayerScore("Saulius4", 5, 6666, "3x4"));
+		players.add(new PlayerScore("Mindaugas4", 5, 34, "4x4"));
+		players.add(new PlayerScore("Tomas4", 5, 34, "5x4"));
 
 		return players;
 	}
