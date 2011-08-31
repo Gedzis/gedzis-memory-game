@@ -11,6 +11,7 @@ import net.gedzis.memory.database.DatabaseCommon;
 import net.gedzis.memory.model.PlayerScore;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -51,7 +52,7 @@ public class LocalHighScoreActivity extends BaseActivity {
 		// LocalMemoryXMLParser localMemoryXMLParser = new
 		// LocalMemoryXMLParser();
 		// players = localMemoryXMLParser.parseFile(this);
-
+		// http://groups.google.com/group/android-beginners/browse_thread/thread/55ee7bee074d3efc/c2407a62aaada5d0?pli=1
 		List<String> tableIds = common.getGameTableIDs();
 		LinearLayout layout = (LinearLayout) findViewById(R.id.high_score_layout);
 		// RelativeLayout header = (RelativeLayout)
@@ -61,12 +62,17 @@ public class LocalHighScoreActivity extends BaseActivity {
 			tableCaption.setText(getText(R.string.local_highscore_list_caption)
 					+ id);
 			ListView list = new ListView(layout.getContext());
+			list.setLayoutParams(new LinearLayout.LayoutParams(
+					ViewGroup.LayoutParams.FILL_PARENT,
+					ViewGroup.LayoutParams.WRAP_CONTENT));
 			highScoreArrayAdapter = new HighScoreArrayAdapter(this,
-					R.layout.high_score_element,
-					common.getCurrentTableHighScore(players, id));
+					R.layout.high_score_element, common
+							.getCurrentTableHighScore(players, id));
 			list.setAdapter(highScoreArrayAdapter);
 			layout.addView(tableCaption);
+
 			layout.addView(list);
+
 		}
 		database.close();
 
