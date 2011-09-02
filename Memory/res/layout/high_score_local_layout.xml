@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout android:id="@+id/high_score_layout"
+<LinearLayout android:id="@+id/local_high_score_base"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent" android:layout_below="@+id/listTitles">
-	<TextView android:id="@+id/local_highscore_time"
-		android:layout_width="50dp" android:layout_height="wrap_content"
-		android:text="time" android:layout_alignParentRight="true"
-		android:paddingRight="10dp" />
+	android:layout_height="fill_parent">
+	<HorizontalScrollView android:id="@+id/table_id_horizontal_scroll"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+		<TableLayout android:id="@+id/table_id_layout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+			<TableRow android:background="#ffff00" android:id="@+id/table_id_list"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+			</TableRow>
+
+		</TableLayout>
+	</HorizontalScrollView>
+	<TextView android:id="@+id/local_highscore_table_name"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:text="@string/local_highscore_list_caption"
+		android:layout_alignParentRight="true" android:paddingRight="10dp" />
+	<ListView android:id="@+id/local_high_score_list"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:clickable="false" android:listSelector="@android:color/transparent" />
+
 </LinearLayout>
-
-
