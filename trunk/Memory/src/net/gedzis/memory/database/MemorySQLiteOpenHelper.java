@@ -2,8 +2,8 @@ package net.gedzis.memory.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.util.Log;
 
 public class MemorySQLiteOpenHelper extends SQLiteOpenHelper {
