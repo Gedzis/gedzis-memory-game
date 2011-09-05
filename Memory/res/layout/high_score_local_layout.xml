@@ -6,22 +6,22 @@
 	<HorizontalScrollView android:id="@+id/table_id_horizontal_scroll"
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="fill_parent" android:layout_height="wrap_content">
-
-		<TableLayout android:id="@+id/table_id_layout"
-			android:layout_width="fill_parent" android:layout_height="wrap_content">
-
-			<TableRow android:background="#ffff00" android:id="@+id/table_id_list"
-				android:layout_width="fill_parent" android:layout_height="wrap_content">
-			</TableRow>
-
-		</TableLayout>
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:background="#ffff00" android:id="@+id/table_id_list"
+			android:layout_gravity="center_vertical|center_horizontal">
+		</LinearLayout>
 	</HorizontalScrollView>
 	<TextView android:id="@+id/local_highscore_table_name"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
 		android:text="@string/local_highscore_list_caption"
 		android:layout_alignParentRight="true" android:paddingRight="10dp" />
+	<include layout="@layout/local_high_score_list_header" />
 	<ListView android:id="@+id/local_high_score_list"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:clickable="false" android:listSelector="@android:color/transparent" />
-
+		android:clickable="false" android:listSelector="@android:color/transparent">
+	</ListView>
+	<TextView android:id="@+id/no_score_text_view" android:text="@string/no_score_text"
+		android:layout_width="wrap_content" android:layout_height="wrap_content">
+	</TextView>
 </LinearLayout>

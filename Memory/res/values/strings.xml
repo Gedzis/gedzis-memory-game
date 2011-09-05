@@ -17,4 +17,6 @@
 	<string name="game_over_dialog_title">Game Over</string>
 	<string name="game_over_button_submit_score_local">Submit highscore</string>
 	<string name="game_over_button_close">Close</string>
+	<string name="no_score_text">No score saved</string>
+
 </resources>
