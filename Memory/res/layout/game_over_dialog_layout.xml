@@ -31,9 +31,7 @@
 			android:textColor="#FFEEAA" android:text="@string/turns_title_text" />
 		<TextView android:id="@+id/game_over_turns"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_gravity="center" android:gravity="left"
-			android:typeface="normal" android:bufferType="normal"
-			android:textColor="#FFEEAA" android:text="0"
+			android:layout_gravity="center" android:gravity="left" android:text="0"
 			android:layout_toRightOf="@+id/turns_text" />
 		<TextView android:layout_width="wrap_content"
 			android:layout_height="wrap_content" android:layout_gravity="center"

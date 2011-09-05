@@ -19,4 +19,5 @@
 	<string name="game_over_button_close">Close</string>
 	<string name="no_score_text">No score saved</string>
 
+	<string name="score_saved">Score saved</string>
 </resources>
