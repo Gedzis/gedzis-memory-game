@@ -35,7 +35,7 @@ public class HighScoreArrayAdapter extends ArrayAdapter<PlayerScore> {
 		}
 		PlayerScore o = highscores.get(position);
 		if (o != null) {
-			place++;
+			place = position + 1;
 			TextView highScorePlace = (TextView) v
 					.findViewById(R.id.local_highscore_place);
 			TextView highScoreName = (TextView) v
@@ -54,9 +54,9 @@ public class HighScoreArrayAdapter extends ArrayAdapter<PlayerScore> {
 				highScoreTurns.setText(Integer.toString(o.getTurns()));
 			}
 			if (highScoreTime != null) {
-				highScoreTime.setText(common.timeToString(
-						common.getMinutesValue(o.getTime()),
-						common.getSecondsValue(o.getTime())));
+				highScoreTime.setText(common.timeToString(common
+						.getMinutesValue(o.getTime()), common.getSecondsValue(o
+						.getTime())));
 			}
 		}
 		return v;
