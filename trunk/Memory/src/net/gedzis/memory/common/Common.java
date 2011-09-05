@@ -82,6 +82,10 @@ public class Common {
 				+ (seconds < 10 ? "0" + seconds : seconds);
 	}
 
+	public String timeToString(long time) {
+		return timeToString(getMinutesValue(time), getSecondsValue(time));
+	}
+
 	public List<PlayerScore> getCurrentTableHighScore(
 			List<PlayerScore> players, String tableID) {
 		List<PlayerScore> tableScores = new ArrayList<PlayerScore>();

@@ -31,7 +31,6 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.Chronometer.OnChronometerTickListener;
 import android.widget.ImageView.ScaleType;
 
@@ -74,8 +73,8 @@ public class CardsGameActivity extends BaseActivity {
 		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
 		newGame(getIntent().getIntExtra(Constants.GAME_TABLE_ROW,
-				Constants.DEFAULT_GAME_TABLE_SIZE_ROW),
-				getIntent().getIntExtra(Constants.GAME_TABLE_COL,
+				Constants.DEFAULT_GAME_TABLE_SIZE_ROW), getIntent()
+				.getIntExtra(Constants.GAME_TABLE_COL,
 						Constants.DEFAULT_GAME_TABLE_SIZE_COL));
 
 		chrono.setOnChronometerTickListener(new OnChronometerTickListener() {
@@ -86,8 +85,15 @@ public class CardsGameActivity extends BaseActivity {
 				long seconds = common.getSecondsValue(elapsedTime);
 				currentTime = common.timeToString(minutes, seconds);
 				arg0.setText(currentTime);
+				if (Constants.MAX_GAME_TIME_MIN < minutes) {
+					stopGame();
+				}
 			}
 		});
+	}
+
+	protected void stopGame() {
+		this.finish();
 	}
 
 	public void updateTurnsCaption() {
@@ -121,8 +127,6 @@ public class CardsGameActivity extends BaseActivity {
 		Dialog gameOverDialog = new GameOverDialog(this, turns, elapsedTime,
 				common.generateTableId(TABLE_COL_COUNT, TABLE_ROW_COUNT));
 		gameOverDialog.show();
-		Toast.makeText(this, "Žadimas baigtas! ", Toast.LENGTH_SHORT).show();
-
 	}
 
 	private TableRow createRow(int y) {

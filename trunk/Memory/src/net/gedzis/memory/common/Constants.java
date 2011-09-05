@@ -11,6 +11,7 @@ public class Constants {
 	public static final String SETTINGS_VIBRATE = "vibrate";
 	public static final boolean SETTINGS_VIBRATE_DEFAULT = true;
 	public static long VIBRATE_ITENSITY = 50;
+	public static long MAX_GAME_TIME_MIN = 1;
 
 	public static int LOCAL_HIGH_SCORE_AMOUNT_FOR_TABLE = 3;
 	public static String LOCAL_HIGH_SCORE_FILENAME = "highscore.xml";

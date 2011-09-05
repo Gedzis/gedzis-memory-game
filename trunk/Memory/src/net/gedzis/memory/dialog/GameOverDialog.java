@@ -1,6 +1,7 @@
 package net.gedzis.memory.dialog;
 
 import net.gedzis.memory.R;
+import net.gedzis.memory.common.Common;
 import net.gedzis.memory.database.Database;
 import net.gedzis.memory.model.PlayerScore;
 import android.app.Dialog;
@@ -11,10 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameOverDialog extends Dialog implements OnClickListener {
 	private Database database;
 	private Context context;
+	public Common common = new Common();
 
 	protected String table;
 	protected int turns;
@@ -34,7 +37,7 @@ public class GameOverDialog extends Dialog implements OnClickListener {
 		turnsTextView.setText(Integer.toString(turns));
 
 		TextView elapsedTimeTextView = (TextView) findViewById(R.id.game_over_timmer);
-		elapsedTimeTextView.setText(String.valueOf(time));
+		elapsedTimeTextView.setText(common.timeToString(time));
 
 		// set up image view
 		ImageView img = (ImageView) findViewById(R.id.game_over_logo);
@@ -71,6 +74,8 @@ public class GameOverDialog extends Dialog implements OnClickListener {
 					table));
 			database.close();
 			this.dismiss();
+			Toast.makeText(context, R.string.score_saved, Toast.LENGTH_SHORT)
+					.show();
 
 		}
 
