@@ -1,10 +1,13 @@
 package net.gedzis.memory.activity;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import net.gedzis.memory.BaseActivity;
 import net.gedzis.memory.R;
 import net.gedzis.memory.adapter.HighScoreArrayAdapter;
+import net.gedzis.memory.comparator.PlayerScoreComparator;
 import net.gedzis.memory.database.Database;
 import net.gedzis.memory.database.DatabaseCommon;
 import net.gedzis.memory.model.PlayerScore;
@@ -24,6 +27,7 @@ public class LocalHighScoreActivity extends BaseActivity {
 	private List<PlayerScore> players;
 	private Database database;
 	private LinearLayout layout;
+	private Comparator<PlayerScore> scoreComparator = new PlayerScoreComparator();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -64,9 +68,6 @@ public class LocalHighScoreActivity extends BaseActivity {
 		tableName.setText(getText(R.string.local_highscore_list_caption) + " "
 				+ tableId);
 		ListView list = (ListView) findViewById(R.id.local_high_score_list);
-		list.setLayoutParams(new LinearLayout.LayoutParams(
-				ViewGroup.LayoutParams.FILL_PARENT,
-				ViewGroup.LayoutParams.WRAP_CONTENT));
 		List<PlayerScore> scores = common.getCurrentTableHighScore(players,
 				tableId);
 		if (scores.size() == 0) {
@@ -74,6 +75,8 @@ public class LocalHighScoreActivity extends BaseActivity {
 		} else {
 			noScore.setVisibility(View.INVISIBLE);
 		}
+		Collections.sort(scores, scoreComparator);
+
 		HighScoreArrayAdapter highScoreArrayAdapter = new HighScoreArrayAdapter(
 				this, R.layout.high_score_element, scores);
 		list.setAdapter(highScoreArrayAdapter);
