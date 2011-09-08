@@ -41,7 +41,7 @@ public class GameOverDialog extends Dialog implements OnClickListener {
 
 		// set up image view
 		ImageView img = (ImageView) findViewById(R.id.game_over_logo);
-		img.setImageResource(R.drawable.card1);
+		img.setImageResource(R.drawable.logo);
 		Button closeDialogButton = (Button) findViewById(R.id.game_over_button_close);
 		closeDialogButton.setOnClickListener(this);
 
