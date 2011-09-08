@@ -5,11 +5,11 @@
 	android:layout_height="fill_parent">
 	<HorizontalScrollView android:id="@+id/table_id_horizontal_scroll"
 		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_width="fill_parent" android:layout_height="wrap_content">
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:background="#ffff00">
 		<LinearLayout android:orientation="horizontal"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:background="#ffff00" android:id="@+id/table_id_list"
-			android:layout_gravity="center_vertical|center_horizontal">
+			android:id="@+id/table_id_list" android:layout_gravity="center_vertical|center_horizontal">
 		</LinearLayout>
 	</HorizontalScrollView>
 	<TextView android:id="@+id/local_highscore_table_name"

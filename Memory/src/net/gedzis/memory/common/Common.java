@@ -48,7 +48,7 @@ public class Common {
 		gameTables.add(createNewGameTable(2, 3));
 		gameTables.add(createNewGameTable(3, 4));
 		gameTables.add(createNewGameTable(4, 4));
-		gameTables.add(createNewGameTable(5, 4));
+		gameTables.add(createNewGameTable(4, 5));
 		return gameTables;
 	}
 
