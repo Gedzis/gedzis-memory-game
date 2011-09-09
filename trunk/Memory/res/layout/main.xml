@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
-	<ImageView android:id="@+id/logo" android:padding="3px"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:src="@drawable/logo" android:layout_centerHorizontal="true"
-		android:scaleType="fitStart" />
-	<TextView android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:text="@string/hello" />
-	<Button android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:id="@+id/new_game_button"
-		android:text="@string/new_game_button_title_text" />
-	<Button android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:id="@+id/settings_button"
-		android:text="@string/settings_button_title_text" />
-	<Button android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:id="@+id/local_highscore_button"
-		android:text="@string/local_highscore_button_title_text" />
-</LinearLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/game_window_header" android:layout_width="fill_parent"
+	android:layout_height="wrap_content" android:padding="10dp"
+	android:background="@drawable/menu_bg">
+	<LinearLayout android:id="@+id/LinearLayout"
+		android:orientation="vertical" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+		android:layout_centerVertical="true">
+		<ImageView android:id="@+id/new_game_button"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true" android:src="@drawable/new_game"
+			android:layout_marginTop="80dp" />
+		<ImageView android:id="@+id/settings_button"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true" android:src="@drawable/options" />
+		<ImageView android:id="@+id/local_highscore_button"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true" android:src="@drawable/local" />
+
+
+
+	</LinearLayout>
+
+</RelativeLayout>
 
