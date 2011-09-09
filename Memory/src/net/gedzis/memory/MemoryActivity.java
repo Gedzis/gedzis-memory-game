@@ -25,12 +25,15 @@ public class MemoryActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.new_game_button:
+			vibrator.vibrate(getVibrationIntensity());
 			openNewGameDialog();
 			break;
 		case R.id.settings_button:
+			vibrator.vibrate(getVibrationIntensity());
 			startActivity(new Intent(this, GameSettingsActivity.class));
 			break;
 		case R.id.local_highscore_button:
+			vibrator.vibrate(getVibrationIntensity());
 			startActivity(new Intent(this, LocalHighScoreActivity.class));
 			break;
 		}

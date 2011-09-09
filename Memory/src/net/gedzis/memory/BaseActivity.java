@@ -10,9 +10,11 @@ import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.model.GameTable;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,11 +22,13 @@ import android.view.MenuItem;
 public class BaseActivity extends Activity {
 	public Common common = new Common();
 	public List<GameTable> gameTables;
+	public Vibrator vibrator;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		gameTables = common.getGameTables();
+		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 	}
 
 	@Override

@@ -14,13 +14,11 @@ import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.dialog.GameOverDialog;
 import net.gedzis.memory.model.Card;
 import android.app.Dialog;
-import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import android.os.Vibrator;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -49,7 +47,6 @@ public class CardsGameActivity extends BaseActivity {
 	int turns;
 	int corretGuess;
 	private UpdateCardsHandler handler;
-	private Vibrator vibrator;
 
 	/** Timmer */
 	private Chronometer chrono;
@@ -70,7 +67,7 @@ public class CardsGameActivity extends BaseActivity {
 		buttonListener = new ButtonListener();
 		handler = new UpdateCardsHandler();
 		chrono = (Chronometer) findViewById(R.id.timmer);
-		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+	
 
 		newGame(getIntent().getIntExtra(Constants.GAME_TABLE_ROW,
 				Constants.DEFAULT_GAME_TABLE_SIZE_ROW), getIntent()
