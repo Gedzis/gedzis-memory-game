@@ -12,6 +12,7 @@ public class GameSettingsActivity extends PreferenceActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.settings);
+		getWindow().setBackgroundDrawableResource(R.drawable.game_bg);
 	}
 
 	public static boolean getVibrate(Context context) {

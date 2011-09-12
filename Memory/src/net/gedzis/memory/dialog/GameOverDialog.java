@@ -47,6 +47,8 @@ public class GameOverDialog extends Dialog implements OnClickListener {
 
 		Button submitLocalScore = (Button) findViewById(R.id.game_over_button_submit_score_local);
 		submitLocalScore.setOnClickListener(this);
+		getWindow().setBackgroundDrawableResource(R.drawable.game_bg);
+
 	}
 
 	// TODO Auto-generated constructor stub
