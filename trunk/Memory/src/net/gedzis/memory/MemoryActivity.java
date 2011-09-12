@@ -2,6 +2,7 @@ package net.gedzis.memory;
 
 import net.gedzis.memory.activity.GameSettingsActivity;
 import net.gedzis.memory.activity.LocalHighScoreActivity;
+import net.gedzis.memory.audio.AudioPlayer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,7 @@ public class MemoryActivity extends BaseActivity implements OnClickListener {
 	}
 
 	public void onClick(View v) {
+		AudioPlayer.play(this, R.raw.button);
 		switch (v.getId()) {
 		case R.id.new_game_button:
 			vibrator.vibrate(getVibrationIntensity());
