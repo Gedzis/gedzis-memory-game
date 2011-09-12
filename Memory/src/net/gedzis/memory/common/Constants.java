@@ -8,8 +8,13 @@ public class Constants {
 	public static final String GAME_TABLE_ROW = "game_table_row";
 	public static final long FLIP_DURATION_TIME = 250;
 	public static final long TIMMER_TASK_DELAY = 1000;
+
+	// Preferences
 	public static final String SETTINGS_VIBRATE = "vibrate";
 	public static final boolean SETTINGS_VIBRATE_DEFAULT = true;
+	public static final String SETTINGS_MUSIC = "music";
+	public static final boolean SETTINGS_MUSIC_DEFAULT = true;
+
 	public static long VIBRATE_ITENSITY = 50;
 	public static long MAX_GAME_TIME_MIN = 1;
 

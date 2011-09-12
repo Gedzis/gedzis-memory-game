@@ -13,6 +13,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.Menu;
@@ -29,6 +30,8 @@ public class BaseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		gameTables = common.getGameTables();
 		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
 	}
 
 	@Override

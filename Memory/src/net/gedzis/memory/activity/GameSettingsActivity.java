@@ -19,4 +19,12 @@ public class GameSettingsActivity extends PreferenceActivity {
 				.getBoolean(Constants.SETTINGS_VIBRATE,
 						Constants.SETTINGS_VIBRATE_DEFAULT);
 	}
+
+	/** Get the current value of the music option */
+	public static boolean getMusic(Context context) {
+		return PreferenceManager.getDefaultSharedPreferences(context)
+				.getBoolean(Constants.SETTINGS_MUSIC,
+						Constants.SETTINGS_MUSIC_DEFAULT);
+	}
+
 }

@@ -12,8 +12,12 @@
 	<string name="select_grid_size_title">Select grid size</string>
 	<string name="menu_item_new_game_title_text">New Game</string>
 	<string name="menu_item_setings_title_text">Game Setings</string>
+
 	<string name="settings_vibration_title">Vibrate</string>
 	<string name="settings_vibration_summary">Enable Vibration</string>
+	<string name="settings_music_title">Music</string>
+	<string name="settings_music_summary">Play sounds in game</string>
+
 	<string name="game_over_dialog_title">Game Over</string>
 	<string name="game_over_button_submit_score_local">Submit highscore</string>
 	<string name="game_over_button_close">Close</string>
