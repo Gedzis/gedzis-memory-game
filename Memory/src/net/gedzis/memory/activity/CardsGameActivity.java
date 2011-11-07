@@ -106,6 +106,7 @@ public class CardsGameActivity extends BaseActivity {
 
 	public void newGame(int row, int col) {
 		newGameButton.setVisibility(View.GONE);
+
 		elapsedTime = 0;
 		chrono.setText("00:00");
 		chrono.setBase(SystemClock.elapsedRealtime());
@@ -114,6 +115,7 @@ public class CardsGameActivity extends BaseActivity {
 		TABLE_ROW_COUNT = row;
 		gameTable = new int[TABLE_COL_COUNT][TABLE_ROW_COUNT];
 		mainTable = (TableLayout) findViewById(R.id.game_table);
+		mainTable.setVisibility(View.VISIBLE);
 		for (int y = 0; y < TABLE_ROW_COUNT; y++) {
 			mainTable.addView(createRow(y));
 		}
@@ -126,13 +128,13 @@ public class CardsGameActivity extends BaseActivity {
 	}
 
 	public void gameOver() {
-		newGameButton.setVisibility(View.VISIBLE);
-
 		chrono.stop();
-
 		Dialog gameOverDialog = new GameOverDialog(this, turns, elapsedTime,
 				common.generateTableId(TABLE_COL_COUNT, TABLE_ROW_COUNT));
 		gameOverDialog.show();
+		mainTable.setVisibility(View.GONE);
+		newGameButton.setVisibility(View.VISIBLE);
+
 	}
 
 	private TableRow createRow(int y) {
