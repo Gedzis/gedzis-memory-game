@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:background="@drawable/game_bg">
-	<RelativeLayout
-		android:id="@+id/game_window_header" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:padding="10dp">
+	<RelativeLayout android:id="@+id/game_window_header"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:padding="10dp">
 		<TextView android:layout_width="wrap_content"
 			android:layout_height="wrap_content" android:layout_gravity="center"
 			android:gravity="left" android:typeface="normal" android:bufferType="normal"
@@ -20,9 +20,16 @@
 			android:layout_alignParentRight="true" android:layout_height="wrap_content"
 			android:id="@+id/timmer" />
 	</RelativeLayout>
-	<TableLayout android:layout_width="wrap_content" android:stretchColumns="true"
-		android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/game_table" android:scaleType="fitXY" android:shrinkColumns="*"  android:layout_gravity="center" >
+
+	<ImageView android:id="@+id/game_new_game_button"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true" android:src="@drawable/new_game"
+		android:layout_marginTop="80dp" android:visibility="invisible" />
+	<TableLayout android:layout_width="wrap_content"
+		android:stretchColumns="true" android:layout_height="fill_parent"
+		xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/game_table"
+		android:scaleType="fitXY" android:shrinkColumns="*"
+		android:layout_gravity="center">
 
 	</TableLayout>
 </LinearLayout>

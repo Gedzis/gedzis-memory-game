@@ -34,6 +34,7 @@ import android.widget.ImageView.ScaleType;
 
 public class CardsGameActivity extends BaseActivity {
 
+	private ImageView newGameButton;
 	private static Object lock = new Object();
 	private ButtonListener buttonListener;
 	private static int TABLE_ROW_COUNT = -1;
@@ -67,8 +68,13 @@ public class CardsGameActivity extends BaseActivity {
 		buttonListener = new ButtonListener();
 		handler = new UpdateCardsHandler();
 		chrono = (Chronometer) findViewById(R.id.timmer);
-	
+		newGameButton = (ImageView) findViewById(R.id.game_new_game_button);
+		newGameButton.setOnClickListener(new OnClickListener() {
 
+			public void onClick(View v) {
+				openNewGameDialog();
+			}
+		});
 		newGame(getIntent().getIntExtra(Constants.GAME_TABLE_ROW,
 				Constants.DEFAULT_GAME_TABLE_SIZE_ROW), getIntent()
 				.getIntExtra(Constants.GAME_TABLE_COL,
@@ -99,6 +105,7 @@ public class CardsGameActivity extends BaseActivity {
 	}
 
 	public void newGame(int row, int col) {
+		newGameButton.setVisibility(View.GONE);
 		elapsedTime = 0;
 		chrono.setText("00:00");
 		chrono.setBase(SystemClock.elapsedRealtime());
@@ -119,6 +126,8 @@ public class CardsGameActivity extends BaseActivity {
 	}
 
 	public void gameOver() {
+		newGameButton.setVisibility(View.VISIBLE);
+
 		chrono.stop();
 
 		Dialog gameOverDialog = new GameOverDialog(this, turns, elapsedTime,
