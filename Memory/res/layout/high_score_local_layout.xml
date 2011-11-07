@@ -19,7 +19,7 @@
 	<include layout="@layout/local_high_score_list_header" />
 	<ListView android:id="@+id/local_high_score_list"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:clickable="false" android:listSelector="@android:color/transparent">
+		android:clickable="false" android:listSelector="@drawable/list_selector" android:cacheColorHint="#00000000" >
 	</ListView>
 	<TextView android:id="@+id/no_score_text_view" android:text="@string/no_score_text"
 		android:layout_width="wrap_content" android:layout_height="wrap_content">
