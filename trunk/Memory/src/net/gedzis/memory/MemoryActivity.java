@@ -24,7 +24,7 @@ public class MemoryActivity extends BaseActivity implements OnClickListener {
 	}
 
 	public void onClick(View v) {
-		AudioPlayer.play(this, R.raw.button);
+		AudioPlayer.play(this, R.raw.navigation);
 		switch (v.getId()) {
 		case R.id.new_game_button:
 			vibrator.vibrate(getVibrationIntensity());

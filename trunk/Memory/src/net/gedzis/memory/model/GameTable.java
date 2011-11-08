@@ -28,7 +28,8 @@ public class GameTable {
 
 	@Override
 	public String toString() {
-		return "GameTable [columns=" + columns + ", rows=" + rows + "]";
+		return columns + " x " + rows;
+		// return "GameTable [columns=" + columns + ", rows=" + rows + "]";
 	}
 
 }
