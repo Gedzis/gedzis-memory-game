@@ -10,8 +10,11 @@
 	<string name="local_highscore_list_caption">Table size: </string>
 	<string name="user_name_caption_text">Your name: </string>
 	<string name="select_grid_size_title">Select grid size</string>
+
 	<string name="menu_item_new_game_title_text">New Game</string>
 	<string name="menu_item_setings_title_text">Game Setings</string>
+	<string name="menu_item_high_score_title_text">High Score</string>
+	<string name="menu_item_about_title_text">Abut</string>
 
 	<string name="settings_vibration_title">Vibrate</string>
 	<string name="settings_vibration_summary">Enable Vibration</string>

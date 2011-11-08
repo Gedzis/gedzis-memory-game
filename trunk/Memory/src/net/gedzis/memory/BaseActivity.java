@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.gedzis.memory.activity.CardsGameActivity;
 import net.gedzis.memory.activity.GameSettingsActivity;
+import net.gedzis.memory.activity.LocalHighScoreActivity;
 import net.gedzis.memory.common.Common;
 import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.model.GameTable;
@@ -54,8 +55,11 @@ public class BaseActivity extends Activity {
 					GameSettingsActivity.class);
 			startActivity(settingsActivityIntent);
 			return true;
+		case R.id.menu_high_score:
+			startActivity(new Intent(this, LocalHighScoreActivity.class));
 		}
 
+		
 		return false;
 	}
 
