@@ -38,8 +38,8 @@ public class Common {
 		List<GameTable> gameTables = new ArrayList<GameTable>();
 		gameTables.add(createNewGameTable(1, 2));
 		gameTables.add(createNewGameTable(2, 2));
-		gameTables.add(createNewGameTable(2, 3));
-		gameTables.add(createNewGameTable(3, 4));
+		gameTables.add(createNewGameTable(3, 2));
+		gameTables.add(createNewGameTable(4, 3));
 		gameTables.add(createNewGameTable(4, 4));
 		gameTables.add(createNewGameTable(4, 5));
 		return gameTables;

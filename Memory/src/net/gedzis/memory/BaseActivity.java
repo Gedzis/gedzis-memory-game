@@ -6,6 +6,7 @@ import java.util.List;
 import net.gedzis.memory.activity.CardsGameActivity;
 import net.gedzis.memory.activity.GameSettingsActivity;
 import net.gedzis.memory.activity.LocalHighScoreActivity;
+import net.gedzis.memory.audio.AudioPlayer;
 import net.gedzis.memory.common.Common;
 import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.model.GameTable;
@@ -28,6 +29,7 @@ public class BaseActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		AudioPlayer.play(this, R.raw.main);
 		super.onCreate(savedInstanceState);
 		gameTables = common.getGameTables();
 		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
