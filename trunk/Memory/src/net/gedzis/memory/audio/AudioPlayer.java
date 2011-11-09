@@ -10,9 +10,16 @@ public class AudioPlayer {
 	/** Stop old song and start new one */
 	public static void play(Context context, int resource) {
 		if (GameSettingsActivity.getMusic(context)) {
-			stop(context);
 			mp = MediaPlayer.create(context, resource);
 			mp.setLooping(false);
+			mp.start();
+		}
+
+	}
+	public static void playInBackground(Context context, int resource) {
+		if (GameSettingsActivity.getMusic(context)) {
+			mp = MediaPlayer.create(context, resource);
+			mp.setLooping(true);
 			mp.start();
 		}
 

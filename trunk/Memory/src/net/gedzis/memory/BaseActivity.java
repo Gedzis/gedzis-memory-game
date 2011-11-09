@@ -29,7 +29,7 @@ public class BaseActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		AudioPlayer.play(this, R.raw.main);
+		AudioPlayer.playInBackground(this, R.raw.main);
 		super.onCreate(savedInstanceState);
 		gameTables = common.getGameTables();
 		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -61,7 +61,6 @@ public class BaseActivity extends Activity {
 			startActivity(new Intent(this, LocalHighScoreActivity.class));
 		}
 
-		
 		return false;
 	}
 
@@ -94,5 +93,12 @@ public class BaseActivity extends Activity {
 		viewActivityIntent.putExtra(Constants.GAME_TABLE_ROW, gameTables.get(
 				selected).getRows());
 		startActivity(viewActivityIntent);
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		AudioPlayer.stop(this);
+
 	}
 }
