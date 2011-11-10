@@ -29,7 +29,6 @@ public class BaseActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		AudioPlayer.playInBackground(this, R.raw.main);
 		super.onCreate(savedInstanceState);
 		gameTables = common.getGameTables();
 		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
