@@ -16,14 +16,6 @@ public class AudioPlayer {
 		}
 
 	}
-	public static void playInBackground(Context context, int resource) {
-		if (GameSettingsActivity.getMusic(context)) {
-			mp = MediaPlayer.create(context, resource);
-			mp.setLooping(true);
-			mp.start();
-		}
-
-	}
 
 	/** Stop the music */
 	public static void stop(Context context) {
