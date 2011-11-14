@@ -38,6 +38,7 @@ public class MemoryActivity extends BaseActivity implements OnClickListener {
 			vibrator.vibrate(getVibrationIntensity());
 			startActivity(new Intent(this, LocalHighScoreActivity.class));
 			break;
+
 		}
 	}
 
