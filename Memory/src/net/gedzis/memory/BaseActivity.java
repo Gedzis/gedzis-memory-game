@@ -6,7 +6,6 @@ import java.util.List;
 import net.gedzis.memory.activity.CardsGameActivity;
 import net.gedzis.memory.activity.GameSettingsActivity;
 import net.gedzis.memory.activity.LocalHighScoreActivity;
-import net.gedzis.memory.audio.AudioPlayer;
 import net.gedzis.memory.common.Common;
 import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.model.GameTable;
@@ -50,7 +49,6 @@ public class BaseActivity extends Activity {
 		case R.id.menu_new_game:
 			openNewGameDialog();
 			return true;
-			// More items go here (if any) ...
 		case R.id.menu_settings:
 			Intent settingsActivityIntent = new Intent(this,
 					GameSettingsActivity.class);
@@ -94,10 +92,4 @@ public class BaseActivity extends Activity {
 		startActivity(viewActivityIntent);
 	}
 
-	@Override
-	protected void onPause() {
-		super.onPause();
-		AudioPlayer.stop(this);
-
-	}
 }
