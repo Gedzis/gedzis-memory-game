@@ -16,6 +16,7 @@
 	<string name="menu_item_high_score_title_text">High Score</string>
 	<string name="menu_item_about_title_text">Abut</string>
 
+<string name="settings_game_prefs_title">Game settings</string>
 	<string name="settings_vibration_title">Vibrate</string>
 	<string name="settings_vibration_summary">Enable Vibration</string>
 	<string name="settings_music_title">Music</string>
