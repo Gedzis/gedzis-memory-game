@@ -36,12 +36,13 @@ public class Common {
 
 	public List<GameTable> getGameTables() {
 		List<GameTable> gameTables = new ArrayList<GameTable>();
-		gameTables.add(createNewGameTable(1, 2));
 		gameTables.add(createNewGameTable(2, 2));
 		gameTables.add(createNewGameTable(3, 2));
 		gameTables.add(createNewGameTable(4, 3));
 		gameTables.add(createNewGameTable(4, 4));
 		gameTables.add(createNewGameTable(4, 5));
+		gameTables.add(createNewGameTable(4, 6));
+
 		return gameTables;
 	}
 
