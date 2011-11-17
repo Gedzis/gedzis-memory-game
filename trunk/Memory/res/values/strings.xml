@@ -20,6 +20,8 @@
 	<string name="settings_vibration_summary">Enable Vibration</string>
 	<string name="settings_music_title">Music</string>
 	<string name="settings_music_summary">Play sounds in game</string>
+	<string name="settings_user_name">Player name</string>
+	<string name="settings_user_name_summary">Player name which is used in highscores</string>
 
 	<string name="game_over_dialog_title">Game Over</string>
 	<string name="game_over_button_submit_score_local">Submit highscore</string>
