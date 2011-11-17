@@ -1,11 +1,14 @@
 package net.gedzis.memory.dialog;
 
 import net.gedzis.memory.R;
+import net.gedzis.memory.activity.GameSettingsActivity;
 import net.gedzis.memory.common.Common;
+import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.database.Database;
 import net.gedzis.memory.model.PlayerScore;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -39,6 +42,8 @@ public class GameOverDialog extends Dialog implements OnClickListener {
 		TextView elapsedTimeTextView = (TextView) findViewById(R.id.game_over_timmer);
 		elapsedTimeTextView.setText(common.timeToString(time));
 
+		EditText userNameInput = (EditText) findViewById(R.id.user_name_input);
+		userNameInput.setText(GameSettingsActivity.getUserName(context));
 		// set up image view
 		ImageView img = (ImageView) findViewById(R.id.game_over_logo);
 		img.setImageResource(R.drawable.logo);
@@ -68,6 +73,19 @@ public class GameOverDialog extends Dialog implements OnClickListener {
 	public void saveScore() {
 		EditText userNameField = (EditText) findViewById(R.id.user_name_input);
 		String userName = userNameField.getText().toString();
+		if (userName.equals("")) {
+			userName = GameSettingsActivity.getUserName(context);
+		} else {
+			if (!userName.toLowerCase().equals(
+					GameSettingsActivity.getUserName(context).toLowerCase())) {
+				SharedPreferences gameSettings = GameSettingsActivity
+						.getSharedPreferences(context);
+				SharedPreferences.Editor prefEditor = gameSettings.edit();
+				prefEditor.putString(Constants.SETTINGS_USER_NAME, userName);
+				prefEditor.commit();
+
+			}
+		}
 		if (userName.equals("")) {
 		} else {
 			database = new Database(context);

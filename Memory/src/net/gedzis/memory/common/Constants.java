@@ -14,6 +14,8 @@ public class Constants {
 	public static final boolean SETTINGS_VIBRATE_DEFAULT = true;
 	public static final String SETTINGS_MUSIC = "music";
 	public static final boolean SETTINGS_MUSIC_DEFAULT = true;
+	public static final String SETTINGS_USER_NAME = "player";
+	public static final String SETTINGS_USER_NAME_DEFAULT = "Player";
 
 	public static long VIBRATE_ITENSITY = 50;
 	public static long MAX_GAME_TIME_MIN = 1;
