@@ -14,6 +14,7 @@ import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.dialog.GameOverDialog;
 import net.gedzis.memory.model.Card;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -34,6 +35,7 @@ import android.widget.Chronometer.OnChronometerTickListener;
 public class CardsGameActivity extends BaseActivity {
 
 	private ImageView newGameButton;
+	private ImageView localHighScoreButton;
 	private static Object lock = new Object();
 	private ButtonListener buttonListener;
 	private static int TABLE_ROW_COUNT = -1;
@@ -74,6 +76,17 @@ public class CardsGameActivity extends BaseActivity {
 				openNewGameDialog();
 			}
 		});
+
+		localHighScoreButton = (ImageView) findViewById(R.id.game_local_highscore_button);
+		localHighScoreButton.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				Intent intent = new Intent(CardsGameActivity.this,
+						LocalHighScoreActivity.class);
+				startActivity(intent);
+			}
+		});
+
 		newGame(getIntent().getIntExtra(Constants.GAME_TABLE_ROW,
 				Constants.DEFAULT_GAME_TABLE_SIZE_ROW), getIntent()
 				.getIntExtra(Constants.GAME_TABLE_COL,
@@ -105,7 +118,7 @@ public class CardsGameActivity extends BaseActivity {
 
 	public void newGame(int row, int col) {
 		newGameButton.setVisibility(View.GONE);
-
+		localHighScoreButton.setVisibility(View.GONE);
 		elapsedTime = 0;
 		chrono.setText("00:00");
 		chrono.setBase(SystemClock.elapsedRealtime());
@@ -133,6 +146,7 @@ public class CardsGameActivity extends BaseActivity {
 		gameOverDialog.show();
 		mainTable.setVisibility(View.GONE);
 		newGameButton.setVisibility(View.VISIBLE);
+		localHighScoreButton.setVisibility(View.VISIBLE);
 
 	}
 
