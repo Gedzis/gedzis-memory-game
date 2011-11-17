@@ -4,9 +4,11 @@ import net.gedzis.memory.activity.GameSettingsActivity;
 import net.gedzis.memory.activity.LocalHighScoreActivity;
 import net.gedzis.memory.audio.AudioPlayer;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 public class MemoryActivity extends BaseActivity implements OnClickListener {
 
@@ -21,6 +23,22 @@ public class MemoryActivity extends BaseActivity implements OnClickListener {
 		settingsButton.setOnClickListener(this);
 		View localHistoryButton = findViewById(R.id.local_highscore_button);
 		localHistoryButton.setOnClickListener(this);
+		if ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE) {
+			Toast.makeText(this, "Large screen", Toast.LENGTH_LONG).show();
+
+		} else if ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_NORMAL) {
+			Toast.makeText(this, "Normal sized screen", Toast.LENGTH_LONG)
+					.show();
+
+		} else if ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_SMALL) {
+			Toast.makeText(this, "Small sized screen", Toast.LENGTH_LONG)
+					.show();
+		} else {
+			Toast.makeText(this,
+					"Screen size is neither large, normal or small",
+					Toast.LENGTH_LONG).show();
+		}
+
 	}
 
 	public void onClick(View v) {

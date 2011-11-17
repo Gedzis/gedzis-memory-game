@@ -30,7 +30,6 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Chronometer.OnChronometerTickListener;
-import android.widget.ImageView.ScaleType;
 
 public class CardsGameActivity extends BaseActivity {
 
@@ -140,7 +139,6 @@ public class CardsGameActivity extends BaseActivity {
 	private TableRow createRow(int y) {
 		TableRow row = new TableRow(mainTable.getContext());
 		row.setHorizontalGravity(Gravity.CENTER);
-
 		for (int x = 0; x < TABLE_COL_COUNT; x++) {
 			row.addView(createImageButton(x, y));
 		}
@@ -153,7 +151,6 @@ public class CardsGameActivity extends BaseActivity {
 		button.setId(100 * x + y);
 		button.setOnClickListener(buttonListener);
 		button.setAdjustViewBounds(true);
-		button.setScaleType(ScaleType.FIT_XY);
 		return button;
 	}
 
