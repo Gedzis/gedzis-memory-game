@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@+id/ScrollView01"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@drawable/game_bg">
+
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/game_window_header" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:padding="10dp">
+		<TextView android:id="@+id/about_title" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_gravity="center"
+			android:gravity="left" android:typeface="normal" android:bufferType="normal"
+			android:text="@string/about_dialog_title" android:textSize="25dp" />
+		<ImageView android:id="@+id/logo" android:layout_below="@+id/about_title"
+			android:layout_marginTop="15dp" android:src="@drawable/logo_main"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true" />
+
+		<TextView android:id="@+id/about_text" android:layout_below="@+id/logo"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_gravity="center" android:gravity="left"
+			android:typeface="normal" android:bufferType="normal"
+			android:text="@string/about_dialog_about_text" android:paddingTop="20dp" />
+
+		<TextView android:id="@+id/about_rules_text"
+			android:layout_below="@+id/about_text" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_gravity="center"
+			android:gravity="left" android:typeface="normal" android:bufferType="normal"
+			android:text="@string/about_dialog_rules_text" android:paddingTop="20dp" />
+
+		<TextView android:id="@+id/about_creator"
+			android:layout_below="@+id/about_rules_text" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_gravity="center"
+			android:gravity="left" android:typeface="normal" android:bufferType="normal"
+			android:text="@string/about_dialog_creator" android:paddingTop="20dp" />
+
+		<Button android:id="@+id/about_close_button"
+			android:paddingTop="10dp" android:layout_below="@+id/about_creator"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_gravity="center" android:text="@string/about_dialog_close_button_text" />
+	</RelativeLayout>
+</ScrollView>
