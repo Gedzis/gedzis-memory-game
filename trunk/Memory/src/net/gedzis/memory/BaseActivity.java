@@ -8,9 +8,11 @@ import net.gedzis.memory.activity.GameSettingsActivity;
 import net.gedzis.memory.activity.LocalHighScoreActivity;
 import net.gedzis.memory.common.Common;
 import net.gedzis.memory.common.Constants;
+import net.gedzis.memory.dialog.AboutDialog;
 import net.gedzis.memory.model.GameTable;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -56,6 +58,10 @@ public class BaseActivity extends Activity {
 			return true;
 		case R.id.menu_high_score:
 			startActivity(new Intent(this, LocalHighScoreActivity.class));
+		case R.id.menu_about:
+			Dialog aboutDialog = new AboutDialog(this);
+			aboutDialog.show();
+
 		}
 
 		return false;
