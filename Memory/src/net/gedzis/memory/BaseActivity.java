@@ -6,6 +6,7 @@ import java.util.List;
 import net.gedzis.memory.activity.CardsGameActivity;
 import net.gedzis.memory.activity.GameSettingsActivity;
 import net.gedzis.memory.activity.LocalHighScoreActivity;
+import net.gedzis.memory.audio.AudioPlayer;
 import net.gedzis.memory.common.Common;
 import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.dialog.AboutDialog;
@@ -47,6 +48,8 @@ public class BaseActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		AudioPlayer.play(this, R.raw.button);
+
 		switch (item.getItemId()) {
 		case R.id.menu_new_game:
 			openNewGameDialog();
