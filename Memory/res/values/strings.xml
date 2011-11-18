@@ -32,14 +32,13 @@
 	<string name="about_dialog_title">About</string>
 	<string name="about_dialog_about_text">Memory is the classic board game, which helps you
 		to improve your memory skills. This is an entertaining and educational
-		game for different age people. </string>
+		game for people of all age. </string>
 	<string name="about_dialog_rules_text">
-		There is only one rule: find all card pairs as fast
-		as you can.
-		</string>
+		There is only one rule: find all pairs as fast as you can.
+        </string>
 	<string name="about_dialog_creator">
 		Creator: Gedzis (www.gedzis.net)
-		</string>
-	<string name="about_dialog_close_button_text">Close</string>		
+        </string>
+	<string name="about_dialog_close_button_text">Close</string>
 	<string name="score_saved">Score saved</string>
 </resources>
