@@ -2,6 +2,7 @@ package net.gedzis.memory.dialog;
 
 import net.gedzis.memory.R;
 import net.gedzis.memory.activity.GameSettingsActivity;
+import net.gedzis.memory.audio.AudioPlayer;
 import net.gedzis.memory.common.Common;
 import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.database.Database;
@@ -59,6 +60,8 @@ public class GameOverDialog extends Dialog implements OnClickListener {
 	// TODO Auto-generated constructor stub
 
 	public void onClick(View v) {
+		AudioPlayer.play(this.getContext(), R.raw.button);
+
 		switch (v.getId()) {
 		case R.id.game_over_button_close:
 			this.dismiss();
