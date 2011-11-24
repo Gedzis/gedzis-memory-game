@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Memory Game</string>
+	<string name="app_name">Memory</string>
+	<string name="turns_title_text">Turns: </string>
+	<string name="time_elapsed_title_text">Elapsed time: </string>
+	<string name="new_game_button_title_text">New Game</string>
+	<string name="settings_button_title_text">Game Options</string>
+	<string name="local_highscore_button_title_text">Local high score</string>
+	<string name="local_highscore_list_caption">Table size: </string>
+	<string name="user_name_caption_text">Your name: </string>
+	<string name="select_grid_size_title">Select grid size</string>
+
+	<string name="menu_item_new_game_title_text">New Game</string>
+	<string name="menu_item_setings_title_text">Game Settings</string>
+	<string name="menu_item_high_score_title_text">High Score</string>
+	<string name="menu_item_about_title_text">Abut Game</string>
+
+	<string name="settings_game_prefs_title">Game settings</string>
+	<string name="settings_vibration_title">Vibrate</string>
+	<string name="settings_vibration_summary">Enable Vibration</string>
+	<string name="settings_music_title">Music</string>
+	<string name="settings_music_summary">Play sounds in game</string>
+	<string name="settings_user_name">Player name</string>
+	<string name="settings_user_name_summary">Player name which is used in highscores</string>
+
+	<string name="game_over_dialog_title">Game Over</string>
+	<string name="game_over_button_submit_score_local">Submit highscore</string>
+	<string name="game_over_button_close">Close</string>
+	<string name="no_score_text">No score saved</string>
+
+	<string name="about_dialog_title">About</string>
+	<string name="about_dialog_about_text">Memory is the classic board game, which helps you
+		to improve your memory skills. This is an entertaining and educational
+		game for people of all age. </string>
+	<string name="about_dialog_rules_text">
+		There is only one rule: find all pairs as fast as you can.
+        </string>
+	<string name="about_dialog_creator">
+		Creator: Gedzis (www.gedzis.net)
+        </string>
+	<string name="about_dialog_close_button_text">Close</string>
+	<string name="score_saved">Score saved</string>
+</resources>

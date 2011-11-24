@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/menu_new_game" android:title="@string/menu_item_new_game_title_text" />
+	<item android:id="@+id/menu_about" android:title="@string/menu_item_about_title_text" />
+	<item android:id="@+id/menu_settings" android:title="@string/menu_item_setings_title_text" />
+	<item android:id="@+id/menu_high_score" android:title="@string/menu_item_high_score_title_text" />
+</menu>
