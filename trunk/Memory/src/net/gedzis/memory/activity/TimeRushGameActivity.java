@@ -12,11 +12,10 @@ import net.gedzis.memory.R;
 import net.gedzis.memory.animation.ChangeViewBackground;
 import net.gedzis.memory.animation.Flip3dAnimation;
 import net.gedzis.memory.common.Constants;
-import net.gedzis.memory.dialog.CardsGameGameOverDialog;
 import net.gedzis.memory.dialog.TimeRushGameGameOverDialog;
 import net.gedzis.memory.model.Card;
 import android.app.Dialog;
-import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,7 +29,6 @@ import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.Chronometer.OnChronometerTickListener;
 
 public class TimeRushGameActivity extends BaseActivity {
@@ -41,6 +39,8 @@ public class TimeRushGameActivity extends BaseActivity {
 	public List<Drawable> images;
 	private Drawable backImage;
 	private TextView correctGuessesCaption;
+	private ImageView newGameButton;
+	private ImageView localHighScoreButton;
 
 	/** Game variables */
 	private int correct;
@@ -76,7 +76,21 @@ public class TimeRushGameActivity extends BaseActivity {
 		lineOne = (LinearLayout) findViewById(R.id.line_one);
 		lineTwo = (LinearLayout) findViewById(R.id.line_two);
 		correctGuessesCaption = (TextView) findViewById(R.id.correct_guesses_caption);
+		newGameButton = (ImageView) findViewById(R.id.game_new_game_button);
+		newGameButton.setOnClickListener(new OnClickListener() {
 
+			public void onClick(View v) {
+				startActivity(new Intent(v.getContext(),
+						TimeRushGameActivity.class));
+			}
+		});
+		localHighScoreButton = (ImageView) findViewById(R.id.game_local_highscore_button);
+		localHighScoreButton.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+
+			}
+		});
 		chrono = (Chronometer) findViewById(R.id.timmer);
 		chrono.setOnChronometerTickListener(new OnChronometerTickListener() {
 
@@ -106,9 +120,15 @@ public class TimeRushGameActivity extends BaseActivity {
 	}
 
 	public void prepareGame() {
+		newGameButton.setVisibility(View.GONE);
+		localHighScoreButton.setVisibility(View.GONE);
+		lineOne.setVisibility(View.VISIBLE);
+		lineTwo.setVisibility(View.VISIBLE);
+		mainImage.setVisibility(View.VISIBLE);
+
 		gameTable = loadCards();
 		drawImages();
-		mainImage.setBackgroundDrawable(backImage);
+		// mainImage.setBackgroundDrawable(backImage);
 		// resetChronoOneMin();
 		elapsedTime = 10000;
 		chrono.setText(common.timeToString(0, 10));
@@ -130,9 +150,18 @@ public class TimeRushGameActivity extends BaseActivity {
 
 	public void gameOver() {
 		chrono.stop();
+
+		mainImage.setVisibility(View.GONE);
+		lineOne.setVisibility(View.GONE);
+		lineTwo.setVisibility(View.GONE);
+
+		newGameButton.setVisibility(View.VISIBLE);
+		localHighScoreButton.setVisibility(View.VISIBLE);
+
 		gameStarted = false;
 		Dialog gameOverDialog = new TimeRushGameGameOverDialog(this, correct);
 		gameOverDialog.show();
+
 	}
 
 	public void setMainGameCard() {
@@ -223,6 +252,9 @@ public class TimeRushGameActivity extends BaseActivity {
 		public void onClick(View v) {
 
 			synchronized (lock) {
+				if (selectedCard != null) {
+					return;
+				}
 				int id = v.getId();
 				int x = id / 100;
 				int y = id % 100;
