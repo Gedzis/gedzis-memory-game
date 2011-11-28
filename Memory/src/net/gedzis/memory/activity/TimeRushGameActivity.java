@@ -114,7 +114,6 @@ public class TimeRushGameActivity extends BaseActivity {
 	}
 
 	public void resetChrono() {
-		chrono.stop();
 		chrono.setBase(SystemClock.elapsedRealtime());
 	}
 
@@ -126,7 +125,6 @@ public class TimeRushGameActivity extends BaseActivity {
 	}
 
 	public void stopChrono() {
-		chrono.stop();
 		resetChrono();
 
 	}
@@ -142,6 +140,7 @@ public class TimeRushGameActivity extends BaseActivity {
 		drawImages();
 		// mainImage.setBackgroundDrawable(backImage);
 		// resetChronoOneMin();
+		// startChrono(Constants.CHRONO_ONE_MIN);
 		startChrono(10000);
 		correctGuessesCaption.setVisibility(View.INVISIBLE);
 	}
@@ -158,7 +157,6 @@ public class TimeRushGameActivity extends BaseActivity {
 
 	public void gameOver() {
 		chrono.stop();
-
 		mainImage.setVisibility(View.GONE);
 		lineOne.setVisibility(View.GONE);
 		lineTwo.setVisibility(View.GONE);
