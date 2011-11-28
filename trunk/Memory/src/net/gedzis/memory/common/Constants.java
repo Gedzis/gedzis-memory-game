@@ -20,6 +20,12 @@ public class Constants {
 	public static long VIBRATE_ITENSITY = 50;
 	public static long MAX_GAME_TIME_MIN = 1;
 
+	public static int TIME_GAME_ROWS = 2;
+	public static int TIME_GAME_COLUMNS = 4;
+	public static long TIME_GAME_MAX_PREVIEW = 10;
+
+	public static long CHRONO_ONE_MIN = 60000;
+
 	public static int LOCAL_HIGH_SCORE_AMOUNT_FOR_TABLE = 3;
 	public static String LOCAL_HIGH_SCORE_FILENAME = "highscore.xml";
 	public static String LOCAL_HIGH_SCORE_TAG = "highscore";
