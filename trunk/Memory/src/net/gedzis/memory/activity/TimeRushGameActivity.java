@@ -12,7 +12,10 @@ import net.gedzis.memory.R;
 import net.gedzis.memory.animation.ChangeViewBackground;
 import net.gedzis.memory.animation.Flip3dAnimation;
 import net.gedzis.memory.common.Constants;
+import net.gedzis.memory.dialog.CardsGameGameOverDialog;
+import net.gedzis.memory.dialog.TimeRushGameGameOverDialog;
 import net.gedzis.memory.model.Card;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -30,7 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Chronometer.OnChronometerTickListener;
 
-public class TimeGameActivity extends BaseActivity {
+public class TimeRushGameActivity extends BaseActivity {
 	private static Object lock = new Object();
 	private CardClickListener cardClickListener;
 	private CheckCardsHandler checkCardsHandler;
@@ -128,6 +131,8 @@ public class TimeGameActivity extends BaseActivity {
 	public void gameOver() {
 		chrono.stop();
 		gameStarted = false;
+		Dialog gameOverDialog = new TimeRushGameGameOverDialog(this, correct);
+		gameOverDialog.show();
 	}
 
 	public void setMainGameCard() {
@@ -266,18 +271,7 @@ public class TimeGameActivity extends BaseActivity {
 			if (gameTable[selectedCard.getX()][selectedCard.getY()] == mainCard) {
 				correct++;
 
-				Context context = getApplicationContext();
-				CharSequence text = "Correct";
-				int duration = Toast.LENGTH_SHORT;
-				Toast toast = Toast.makeText(context, text, duration);
-				toast.show();
-
 			} else {
-				Context context = getApplicationContext();
-				CharSequence text = "False";
-				int duration = Toast.LENGTH_SHORT;
-				Toast toast = Toast.makeText(context, text, duration);
-				toast.show();
 			}
 			setMainGameCard();
 			applyRotation(selectedCard.getButton(), backImage, 0, 90);

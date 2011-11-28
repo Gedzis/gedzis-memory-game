@@ -11,7 +11,7 @@ import net.gedzis.memory.R;
 import net.gedzis.memory.animation.ChangeViewBackground;
 import net.gedzis.memory.animation.Flip3dAnimation;
 import net.gedzis.memory.common.Constants;
-import net.gedzis.memory.dialog.GameOverDialog;
+import net.gedzis.memory.dialog.CardsGameGameOverDialog;
 import net.gedzis.memory.model.Card;
 import android.app.Dialog;
 import android.content.Intent;
@@ -141,7 +141,7 @@ public class CardsGameActivity extends BaseActivity {
 
 	public void gameOver() {
 		chrono.stop();
-		Dialog gameOverDialog = new GameOverDialog(this, turns, elapsedTime,
+		Dialog gameOverDialog = new CardsGameGameOverDialog(this, turns, elapsedTime,
 				common.generateTableId(TABLE_COL_COUNT, TABLE_ROW_COUNT));
 		gameOverDialog.show();
 		mainTable.setVisibility(View.GONE);
