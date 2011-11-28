@@ -28,6 +28,9 @@
 	<string name="game_over_button_submit_score_local">Submit highscore</string>
 	<string name="game_over_button_close">Close</string>
 	<string name="no_score_text">No score saved</string>
+	
+	<string name="time_game_correct_guesses">Correct guesses: </string>
+	<string name="time_game_remaining_time">Time remaining: </string>
 
 	<string name="about_dialog_title">About</string>
 	<string name="about_dialog_about_text">Memory is the classic board game, which helps you
