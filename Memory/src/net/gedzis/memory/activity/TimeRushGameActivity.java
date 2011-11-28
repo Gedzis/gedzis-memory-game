@@ -113,10 +113,22 @@ public class TimeRushGameActivity extends BaseActivity {
 
 	}
 
-	public void resetChronoOneMin() {
-		elapsedTime = Constants.CHRONO_ONE_MIN;
-		chrono.setText("01:00");
+	public void resetChrono() {
+		chrono.stop();
 		chrono.setBase(SystemClock.elapsedRealtime());
+	}
+
+	public void startChrono(long time) {
+		resetChrono();
+		elapsedTime = time;
+		chrono.setText(common.timeToString(time));
+		chrono.start();
+	}
+
+	public void stopChrono() {
+		chrono.stop();
+		resetChrono();
+
 	}
 
 	public void prepareGame() {
@@ -130,22 +142,18 @@ public class TimeRushGameActivity extends BaseActivity {
 		drawImages();
 		// mainImage.setBackgroundDrawable(backImage);
 		// resetChronoOneMin();
-		elapsedTime = 10000;
-		chrono.setText(common.timeToString(0, 10));
-		chrono.start();
+		startChrono(10000);
 		correctGuessesCaption.setVisibility(View.INVISIBLE);
 	}
 
 	public void startGame() {
-		chrono.stop();
 		gameStarted = true;
-		resetChronoOneMin();
-		chrono.start();
 		correct = 0;
 		setMainGameCard();
 		closeGameTableImages();
 		correctGuessesCaption.setVisibility(View.VISIBLE);
 		updateCorrectGuessesCaption();
+		startChrono(Constants.CHRONO_ONE_MIN);
 	}
 
 	public void gameOver() {
