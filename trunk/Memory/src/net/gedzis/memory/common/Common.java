@@ -34,21 +34,21 @@ public class Common {
 		return context.getResources().getDrawable(R.drawable.back);
 	}
 
-	public List<GameTable> getGameTables() {
+	public List<GameTable> getCardGameTables() {
 		List<GameTable> gameTables = new ArrayList<GameTable>();
-		gameTables.add(createNewGameTable(2, 2));
-		gameTables.add(createNewGameTable(3, 2));
-		gameTables.add(createNewGameTable(4, 3));
-		gameTables.add(createNewGameTable(4, 4));
-		gameTables.add(createNewGameTable(4, 5));
-		gameTables.add(createNewGameTable(4, 6));
+		gameTables.add(createCardGameTable(2, 2));
+		gameTables.add(createCardGameTable(3, 2));
+		gameTables.add(createCardGameTable(4, 3));
+		gameTables.add(createCardGameTable(4, 4));
+		gameTables.add(createCardGameTable(4, 5));
+		gameTables.add(createCardGameTable(4, 6));
 
 		return gameTables;
 	}
 
-	public List<String> getGameTableIDs() {
+	public List<String> getCardGameTableIDs() {
 		List<String> ids = new ArrayList<String>();
-		for (GameTable gt : getGameTables()) {
+		for (GameTable gt : getCardGameTables()) {
 			ids.add(generateTableId(gt.getColumns(), gt.getRows()));
 		}
 		return ids;
@@ -58,7 +58,7 @@ public class Common {
 		return col + "x" + row;
 	}
 
-	protected GameTable createNewGameTable(int col, int row) {
+	protected GameTable createCardGameTable(int col, int row) {
 		// TODO reikia patikrinti ar tikrai uzteks turimu paveiksleliu
 		return new GameTable(col, row);
 	}

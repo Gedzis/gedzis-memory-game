@@ -119,7 +119,7 @@ public class TimeRushGameActivity extends BaseActivity {
 
 	public void startChrono(long time) {
 		resetChrono();
-		elapsedTime = time;
+		elapsedTime = time + Constants.CHRONO_ONE_SECOND;
 		chrono.setText(common.timeToString(time));
 		chrono.start();
 	}
@@ -138,10 +138,7 @@ public class TimeRushGameActivity extends BaseActivity {
 
 		gameTable = loadCards();
 		drawImages();
-		// mainImage.setBackgroundDrawable(backImage);
-		// resetChronoOneMin();
-		// startChrono(Constants.CHRONO_ONE_MIN);
-		startChrono(10000);
+		startChrono(Constants.TIME_RUSH_CHRONO_PREVIEW_TIME);
 		correctGuessesCaption.setVisibility(View.INVISIBLE);
 	}
 

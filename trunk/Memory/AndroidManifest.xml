@@ -27,5 +27,7 @@
 			android:label="@string/app_name" android:screenOrientation="portrait" />
 		<activity android:name=".activity.TimeRushGameActivity"
 			android:label="@string/app_name" android:screenOrientation="portrait" />
+		<activity android:name=".activity.NewGameSelectionActivity"
+			android:label="@string/app_name" android:screenOrientation="portrait" />
 	</application>
 </manifest>

@@ -40,7 +40,7 @@ public class LocalHighScoreActivity extends BaseActivity {
 		// LocalMemoryXMLParser();
 		// players = localMemoryXMLParser.parseFile(this);
 		// http://groups.google.com/group/android-beginners/browse_thread/thread/55ee7bee074d3efc/c2407a62aaada5d0?pli=1
-		List<String> tableIds = common.getGameTableIDs();
+		List<String> tableIds = common.getCardGameTableIDs();
 		layout = (LinearLayout) findViewById(R.id.local_high_score_base);
 
 		LinearLayout idsList = (LinearLayout) findViewById(R.id.table_id_list);
