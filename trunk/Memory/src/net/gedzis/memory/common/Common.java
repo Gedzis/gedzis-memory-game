@@ -6,6 +6,7 @@ import java.util.List;
 
 import net.gedzis.memory.R;
 import net.gedzis.memory.model.GameTable;
+import net.gedzis.memory.model.ImageHolder;
 import net.gedzis.memory.model.PlayerScore;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -26,6 +27,48 @@ public class Common {
 		images.add(context.getResources().getDrawable(R.drawable.smile));
 		images.add(context.getResources().getDrawable(R.drawable.touchy));
 		images.add(context.getResources().getDrawable(R.drawable.wow));
+		Collections.shuffle(images);
+		return images;
+	}
+
+	public List<ImageHolder> loadImagesToImageHolder(Context context) {
+		List<ImageHolder> images = new ArrayList<ImageHolder>();
+		images.add(new ImageHolder(context.getResources().getDrawable(
+				R.drawable.angry), context.getResources().getDrawable(
+				R.drawable.angry_big)));
+		images.add(new ImageHolder(context.getResources().getDrawable(
+				R.drawable.cheat), context.getResources().getDrawable(
+				R.drawable.cheat_big)));
+		images.add(new ImageHolder(context.getResources().getDrawable(
+				R.drawable.confuse), context.getResources().getDrawable(
+				R.drawable.confuse_big)));
+		images.add(new ImageHolder(context.getResources().getDrawable(
+				R.drawable.dizzy), context.getResources().getDrawable(
+				R.drawable.dizzy_big)));
+		images.add(new ImageHolder(context.getResources().getDrawable(
+				R.drawable.errr), context.getResources().getDrawable(
+				R.drawable.errr_big)));
+		images.add(new ImageHolder(context.getResources().getDrawable(
+				R.drawable.happy), context.getResources().getDrawable(
+				R.drawable.happy_big)));
+		images.add(new ImageHolder(context.getResources().getDrawable(
+				R.drawable.hungry), context.getResources().getDrawable(
+				R.drawable.hungry_big)));
+		images.add(new ImageHolder(context.getResources().getDrawable(
+				R.drawable.love), context.getResources().getDrawable(
+				R.drawable.love_big)));
+		images.add(new ImageHolder(context.getResources().getDrawable(
+				R.drawable.sick), context.getResources().getDrawable(
+				R.drawable.sick_big)));
+		images.add(new ImageHolder(context.getResources().getDrawable(
+				R.drawable.smile), context.getResources().getDrawable(
+				R.drawable.smile_big)));
+		images.add(new ImageHolder(context.getResources().getDrawable(
+				R.drawable.touchy), context.getResources().getDrawable(
+				R.drawable.touchy_big)));
+		images.add(new ImageHolder(context.getResources().getDrawable(
+				R.drawable.wow), context.getResources().getDrawable(
+				R.drawable.wow_big)));
 		Collections.shuffle(images);
 		return images;
 	}

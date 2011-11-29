@@ -14,6 +14,7 @@ import net.gedzis.memory.animation.Flip3dAnimation;
 import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.dialog.TimeRushGameGameOverDialog;
 import net.gedzis.memory.model.Card;
+import net.gedzis.memory.model.ImageHolder;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -36,7 +37,7 @@ public class TimeRushGameActivity extends BaseActivity {
 	private CardClickListener cardClickListener;
 	private CheckCardsHandler checkCardsHandler;
 	/** Game images */
-	public List<Drawable> images;
+	public List<ImageHolder> images;
 	private Drawable backImage;
 	private TextView correctGuessesCaption;
 	private ImageView newGameButton;
@@ -66,7 +67,7 @@ public class TimeRushGameActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		backImage = common.getBackImage(this);
-		images = common.loadImages(this);
+		images = common.loadImagesToImageHolder(this);
 		setContentView(R.layout.time_game_layout);
 		cardClickListener = new CardClickListener();
 		checkCardsHandler = new CheckCardsHandler();
@@ -154,7 +155,6 @@ public class TimeRushGameActivity extends BaseActivity {
 
 	public void gameOver() {
 		chrono.stop();
-		mainImage.setVisibility(View.GONE);
 		lineOne.setVisibility(View.GONE);
 		lineTwo.setVisibility(View.GONE);
 
@@ -164,6 +164,9 @@ public class TimeRushGameActivity extends BaseActivity {
 		gameStarted = false;
 		Dialog gameOverDialog = new TimeRushGameGameOverDialog(this, correct);
 		gameOverDialog.show();
+		
+		mainImage.setVisibility(View.GONE);
+
 
 	}
 
@@ -174,8 +177,8 @@ public class TimeRushGameActivity extends BaseActivity {
 		if (mainCard == 0) {
 			mainCard++;
 		}
-		applyRotation(mainImage, images.get(mainCard), 0, 90);
 
+		applyRotation(mainImage, images.get(mainCard).getBigImage(), 0, 90);
 	}
 
 	public void closeGameTableImages() {
@@ -201,7 +204,8 @@ public class TimeRushGameActivity extends BaseActivity {
 
 	private View createImageButton(int x, int y, LinearLayout layout) {
 		ImageView button = new ImageView(layout.getContext());
-		button.setBackgroundDrawable(images.get(gameTable[x][y]));
+		button.setBackgroundDrawable(images.get(gameTable[x][y])
+				.getSmallImage());
 		button.setId(100 * x + y);
 		button.setOnClickListener(cardClickListener);
 		button.setPadding(5, 0, 5, 0);
@@ -269,7 +273,8 @@ public class TimeRushGameActivity extends BaseActivity {
 		}
 
 		private void turnCard(ImageView button, int x, int y) {
-			applyRotation(button, images.get(gameTable[x][y]), 0, 90);
+			applyRotation(button, images.get(gameTable[x][y]).getSmallImage(),
+					0, 90);
 			if (selectedCard == null) {
 				selectedCard = new Card(button, x, y);
 				TimerTask tt = new TimerTask() {
