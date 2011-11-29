@@ -43,7 +43,6 @@ public class MemorySQLiteOpenHelper extends SQLiteOpenHelper {
 			Log.e(LOG_TAG, e.getMessage());
 		}
 		Log.i(LOG_TAG, "Finished creating database.");
-
 		Log.i(LOG_TAG, "Inserting initial data");
 		// InitialData.importInitialData(db, context);
 		Log.i(LOG_TAG, "Finished inserting initial data");

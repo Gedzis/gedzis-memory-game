@@ -49,6 +49,22 @@ public class Database {
 		}
 	}
 
+	public long insertTimeRushGamePlayerScore(PlayerScore playerScore) {
+		try {
+			ContentValues newTaskValue = new ContentValues();
+			newTaskValue.put("name", playerScore.getName());
+			newTaskValue.put("correct", playerScore.getTurns());
+			newTaskValue.put("time", playerScore.getTime());
+			return db
+					.insert(
+							DatabaseConstants.TIME_RUSH_GAME_LOCAL_HIGH_SCORE_TABLE_NAME,
+							null, newTaskValue);
+		} catch (SQLiteException ex) {
+			Log.v("Insert into database exception caught", ex.getMessage());
+			return -1;
+		}
+	}
+
 	public Cursor getCardGameScores() {
 		Cursor c = db.query(
 				DatabaseConstants.CARD_GAME_LOCAL_HIGH_SCORE_TABLE_NAME, null,

@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import net.gedzis.memory.model.PlayerScore;
 
-public class PlayerScoreComparator implements Comparator<PlayerScore> {
+public class CardGamePlayerScoreComparator implements Comparator<PlayerScore> {
 
 	public int compare(PlayerScore player1, PlayerScore player2) {
 		if (player1.getTurns() < player2.getTurns()) {

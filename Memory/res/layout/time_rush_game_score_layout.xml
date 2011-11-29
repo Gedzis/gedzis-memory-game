@@ -3,10 +3,10 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:background="@drawable/game_bg">
+	<include layout="@layout/time_rush_game_score_list_header" />
 	<TextView android:id="@+id/separator" android:layout_width="fill_parent"
 		android:layout_height="3dp" android:background="@drawable/separator_line"
 		android:paddingTop="2dp" />
-	<include layout="@layout/time_rush_game_score_list_header" />
 	<ListView android:id="@+id/local_high_score_list"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
 		android:clickable="false" android:listSelector="@drawable/list_selector"
