@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CardsGameGameOverDialog extends Dialog implements OnClickListener {
+public class CardGameGameOverDialog extends Dialog implements OnClickListener {
 	private Database database;
 	private Context context;
 	public Common common = new Common();
@@ -27,7 +27,7 @@ public class CardsGameGameOverDialog extends Dialog implements OnClickListener {
 	protected int turns;
 	protected long time;
 
-	public CardsGameGameOverDialog(Context context, int turns, long time, String table) {
+	public CardGameGameOverDialog(Context context, int turns, long time, String table) {
 		super(context);
 		this.time = time;
 		this.turns = turns;
@@ -93,7 +93,7 @@ public class CardsGameGameOverDialog extends Dialog implements OnClickListener {
 		} else {
 			database = new Database(context);
 			database.open();
-			database.insertPlayerScore(new PlayerScore(userName, turns, time,
+			database.insertCardGamePlayerScore(new PlayerScore(userName, turns, time,
 					table));
 			database.close();
 			this.dismiss();

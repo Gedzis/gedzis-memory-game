@@ -63,7 +63,7 @@ public class NewGameSelectionActivity extends BaseActivity implements
 	}
 
 	public void startCardGame(int selected) {
-		Intent viewActivityIntent = new Intent(this, CardsGameActivity.class);
+		Intent viewActivityIntent = new Intent(this, CardGameActivity.class);
 		viewActivityIntent.putExtra(Constants.GAME_TABLE_COL, gameTables.get(
 				selected).getColumns());
 		viewActivityIntent.putExtra(Constants.GAME_TABLE_ROW, gameTables.get(

@@ -11,7 +11,7 @@ import net.gedzis.memory.R;
 import net.gedzis.memory.animation.ChangeViewBackground;
 import net.gedzis.memory.animation.Flip3dAnimation;
 import net.gedzis.memory.common.Constants;
-import net.gedzis.memory.dialog.CardsGameGameOverDialog;
+import net.gedzis.memory.dialog.CardGameGameOverDialog;
 import net.gedzis.memory.model.Card;
 import net.gedzis.memory.model.GameTable;
 import android.app.AlertDialog;
@@ -35,7 +35,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Chronometer.OnChronometerTickListener;
 
-public class CardsGameActivity extends BaseActivity {
+public class CardGameActivity extends BaseActivity {
 
 	public List<GameTable> gameTables;
 
@@ -87,8 +87,8 @@ public class CardsGameActivity extends BaseActivity {
 		localHighScoreButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				Intent intent = new Intent(CardsGameActivity.this,
-						LocalHighScoreActivity.class);
+				Intent intent = new Intent(CardGameActivity.this,
+						CardGameLocalHighScoreActivity.class);
 				startActivity(intent);
 			}
 		});
@@ -147,7 +147,7 @@ public class CardsGameActivity extends BaseActivity {
 
 	public void gameOver() {
 		chrono.stop();
-		Dialog gameOverDialog = new CardsGameGameOverDialog(this, turns,
+		Dialog gameOverDialog = new CardGameGameOverDialog(this, turns,
 				elapsedTime, common.generateTableId(TABLE_COL_COUNT,
 						TABLE_ROW_COUNT));
 		gameOverDialog.show();
@@ -306,7 +306,7 @@ public class CardsGameActivity extends BaseActivity {
 	}
 
 	public void startCardGame(int selected) {
-		Intent viewActivityIntent = new Intent(this, CardsGameActivity.class);
+		Intent viewActivityIntent = new Intent(this, CardGameActivity.class);
 		viewActivityIntent.putExtra(Constants.GAME_TABLE_COL, gameTables.get(
 				selected).getColumns());
 		viewActivityIntent.putExtra(Constants.GAME_TABLE_ROW, gameTables.get(

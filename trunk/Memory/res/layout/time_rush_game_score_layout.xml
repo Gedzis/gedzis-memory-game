@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/local_high_score_base"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="@drawable/game_bg">
+	<TextView android:id="@+id/separator" android:layout_width="fill_parent"
+		android:layout_height="3dp" android:background="@drawable/separator_line"
+		android:paddingTop="2dp" />
+	<include layout="@layout/time_rush_game_score_list_header" />
+	<ListView android:id="@+id/local_high_score_list"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:clickable="false" android:listSelector="@drawable/list_selector"
+		android:cacheColorHint="#00000000">
+	</ListView>
+	<TextView android:id="@+id/no_score_text_view" android:text="@string/no_score_text"
+		android:layout_width="wrap_content" android:layout_height="wrap_content">
+	</TextView>
+</LinearLayout>
