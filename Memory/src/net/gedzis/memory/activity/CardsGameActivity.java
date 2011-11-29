@@ -13,7 +13,10 @@ import net.gedzis.memory.animation.Flip3dAnimation;
 import net.gedzis.memory.common.Constants;
 import net.gedzis.memory.dialog.CardsGameGameOverDialog;
 import net.gedzis.memory.model.Card;
+import net.gedzis.memory.model.GameTable;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -33,6 +36,8 @@ import android.widget.TextView;
 import android.widget.Chronometer.OnChronometerTickListener;
 
 public class CardsGameActivity extends BaseActivity {
+
+	public List<GameTable> gameTables;
 
 	private ImageView newGameButton;
 	private ImageView localHighScoreButton;
@@ -63,6 +68,7 @@ public class CardsGameActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.card_game_layout);
+		gameTables = common.getCardGameTables();
 		turnsCaption = ((TextView) findViewById(R.id.turns_caption));
 		images = common.loadImages(this);
 		backImage = common.getBackImage(this);
@@ -73,7 +79,7 @@ public class CardsGameActivity extends BaseActivity {
 		newGameButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				openNewGameDialog();
+				openNewCardGameDialog();
 			}
 		});
 
@@ -141,8 +147,9 @@ public class CardsGameActivity extends BaseActivity {
 
 	public void gameOver() {
 		chrono.stop();
-		Dialog gameOverDialog = new CardsGameGameOverDialog(this, turns, elapsedTime,
-				common.generateTableId(TABLE_COL_COUNT, TABLE_ROW_COUNT));
+		Dialog gameOverDialog = new CardsGameGameOverDialog(this, turns,
+				elapsedTime, common.generateTableId(TABLE_COL_COUNT,
+						TABLE_ROW_COUNT));
 		gameOverDialog.show();
 		mainTable.setVisibility(View.GONE);
 		newGameButton.setVisibility(View.VISIBLE);
@@ -281,6 +288,30 @@ public class CardsGameActivity extends BaseActivity {
 				t.schedule(tt, Constants.TIMMER_TASK_DELAY);
 			}
 		}
+	}
+
+	public void openNewCardGameDialog() {
+		ArrayList<String> captions = new ArrayList<String>();
+		for (GameTable gt : gameTables) {
+			captions.add(gt.toString());
+		}
+		new AlertDialog.Builder(this).setTitle(R.string.select_grid_size_title)
+				.setItems(captions.toArray(new CharSequence[captions.size()]),
+						new DialogInterface.OnClickListener() {
+							public void onClick(
+									DialogInterface dialoginterface, int i) {
+								startCardGame(i);
+							}
+						}).show();
+	}
+
+	public void startCardGame(int selected) {
+		Intent viewActivityIntent = new Intent(this, CardsGameActivity.class);
+		viewActivityIntent.putExtra(Constants.GAME_TABLE_COL, gameTables.get(
+				selected).getColumns());
+		viewActivityIntent.putExtra(Constants.GAME_TABLE_ROW, gameTables.get(
+				selected).getRows());
+		startActivity(viewActivityIntent);
 	}
 
 	class UpdateCardsHandler extends Handler {
