@@ -12,13 +12,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class HighScoreArrayAdapter extends ArrayAdapter<PlayerScore> {
+public class CardGameScoreArrayAdapter extends ArrayAdapter<PlayerScore> {
 	public Common common = new Common();
 	private Context context;
 	private List<PlayerScore> highscores;
 	private int place = 0;
 
-	public HighScoreArrayAdapter(Context context, int textViewResourceId,
+	public CardGameScoreArrayAdapter(Context context, int textViewResourceId,
 			List<PlayerScore> objects) {
 		super(context, textViewResourceId, objects);
 		this.highscores = objects;
@@ -31,7 +31,7 @@ public class HighScoreArrayAdapter extends ArrayAdapter<PlayerScore> {
 		if (v == null) {
 			LayoutInflater vi = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			v = vi.inflate(R.layout.high_score_element, null);
+			v = vi.inflate(R.layout.card_game_score_element, null);
 		}
 		PlayerScore o = highscores.get(position);
 		if (o != null) {

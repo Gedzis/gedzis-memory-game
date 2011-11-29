@@ -35,7 +35,10 @@ public class MemorySQLiteOpenHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		Log.i(LOG_TAG, "Creating initial database");
 		try {
-			db.execSQL(DatabaseConstants.LOCAL_HIGH_SCORE_TABLE_CREATE);
+			db
+					.execSQL(DatabaseConstants.CARD_GAME_LOCAL_HIGH_SCORE_TABLE_CREATE);
+			db
+					.execSQL(DatabaseConstants.TIME_RUSH_GAME_LOCAL_HIGH_SCORE_TABLE_CREATE);
 		} catch (Exception e) {
 			Log.e(LOG_TAG, e.getMessage());
 		}
@@ -49,8 +52,12 @@ public class MemorySQLiteOpenHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// TODO Auto-generated method stub
-
+		Log.w(LOG_TAG, "Upgrading database from version " + oldVersion + " to "
+				+ newVersion + ", which will destroy all old data");
+		db.execSQL(DatabaseConstants.CARD_GAME_LOCAL_HIGH_SCORE_TABLE_CREATE);
+		db
+				.execSQL(DatabaseConstants.TIME_RUSH_GAME_LOCAL_HIGH_SCORE_TABLE_CREATE);
+		onCreate(db);
 	}
 
 }

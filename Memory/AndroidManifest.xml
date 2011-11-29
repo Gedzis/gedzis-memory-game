@@ -17,10 +17,10 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".activity.CardsGameActivity"
+		<activity android:name=".activity.CardGameActivity"
 			android:label="@string/app_name" android:noHistory="true"
 			android:screenOrientation="portrait" />
-		<activity android:name=".activity.LocalHighScoreActivity"
+		<activity android:name=".activity.CardGameLocalHighScoreActivity"
 			android:label="@string/app_name" android:screenOrientation="portrait" />
 
 		<activity android:name=".activity.GameSettingsActivity"
@@ -29,5 +29,10 @@
 			android:label="@string/app_name" android:screenOrientation="portrait" />
 		<activity android:name=".activity.NewGameSelectionActivity"
 			android:label="@string/app_name" android:screenOrientation="portrait" />
+		<activity android:name=".activity.LocalHighScoreActivity"
+			android:label="@string/app_name" android:screenOrientation="portrait" />
+		<activity android:name=".activity.TimeRushGameLocalHighScoreActivity"
+			android:label="@string/app_name" android:screenOrientation="portrait" />
+
 	</application>
 </manifest>

@@ -33,14 +33,15 @@ public class Database {
 		}
 	}
 
-	public long insertPlayerScore(PlayerScore playerScore) {
+	public long insertCardGamePlayerScore(PlayerScore playerScore) {
 		try {
 			ContentValues newTaskValue = new ContentValues();
 			newTaskValue.put("name", playerScore.getName());
 			newTaskValue.put("turns", playerScore.getTurns());
 			newTaskValue.put("time", playerScore.getTime());
 			newTaskValue.put("tableid", playerScore.getTable());
-			return db.insert(DatabaseConstants.LOCAL_HIGH_SCORE_TABLE_NAME,
+			return db.insert(
+					DatabaseConstants.CARD_GAME_LOCAL_HIGH_SCORE_TABLE_NAME,
 					null, newTaskValue);
 		} catch (SQLiteException ex) {
 			Log.v("Insert into database exception caught", ex.getMessage());
@@ -48,15 +49,18 @@ public class Database {
 		}
 	}
 
-	public Cursor getScores() {
-		Cursor c = db.query(DatabaseConstants.LOCAL_HIGH_SCORE_TABLE_NAME,
+	public Cursor getCardGameScores() {
+		Cursor c = db.query(
+				DatabaseConstants.CARD_GAME_LOCAL_HIGH_SCORE_TABLE_NAME, null,
+				null, null, null, null, null);
+		return c;
+	}
+
+	public Cursor getTimeRushGameScores() {
+		Cursor c = db.query(
+				DatabaseConstants.TIME_RUSH_GAME_LOCAL_HIGH_SCORE_TABLE_NAME,
 				null, null, null, null, null, null);
 		return c;
 	}
 
-	public Cursor getTableScore(String tableId) {
-		Cursor c = db.query(DatabaseConstants.LOCAL_HIGH_SCORE_TABLE_NAME,
-				null, null, null, null, null, null);
-		return c;
-	}
 }

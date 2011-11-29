@@ -19,7 +19,7 @@
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
 		android:text="@string/local_highscore_list_caption"
 		android:layout_alignParentRight="true" android:paddingRight="10dp" android:textSize="15dp"/>
-	<include layout="@layout/local_high_score_list_header" />
+	<include layout="@layout/card_game_score_list_header" />
 	<ListView android:id="@+id/local_high_score_list"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
 		android:clickable="false" android:listSelector="@drawable/list_selector"
