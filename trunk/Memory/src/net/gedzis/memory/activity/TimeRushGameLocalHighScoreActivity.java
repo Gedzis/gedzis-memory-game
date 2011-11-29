@@ -7,7 +7,7 @@ import java.util.List;
 import net.gedzis.memory.BaseActivity;
 import net.gedzis.memory.R;
 import net.gedzis.memory.adapter.TimeRushGameScoreArrayAdapter;
-import net.gedzis.memory.comparator.PlayerScoreComparator;
+import net.gedzis.memory.comparator.TimeRushGamePlayerScoreComparator;
 import net.gedzis.memory.database.Database;
 import net.gedzis.memory.database.DatabaseCommon;
 import net.gedzis.memory.model.PlayerScore;
@@ -22,7 +22,7 @@ public class TimeRushGameLocalHighScoreActivity extends BaseActivity {
 	/** Called when the activity is first created. */
 	private List<PlayerScore> players;
 	private Database database;
-	private Comparator<PlayerScore> scoreComparator = new PlayerScoreComparator();
+	private Comparator<PlayerScore> scoreComparator = new TimeRushGamePlayerScoreComparator();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -32,30 +32,24 @@ public class TimeRushGameLocalHighScoreActivity extends BaseActivity {
 		setContentView(R.layout.time_rush_game_score_layout);
 		players = getDBRecords();
 		database.close();
+
+		TextView noScore = (TextView) findViewById(R.id.no_score_text_view);
+		ListView list = (ListView) findViewById(R.id.local_high_score_list);
+		if (players.size() == 0) {
+			noScore.setVisibility(View.VISIBLE);
+		} else {
+			noScore.setVisibility(View.INVISIBLE);
+		}
+		Collections.sort(players, scoreComparator);
+
+		TimeRushGameScoreArrayAdapter highScoreArrayAdapter = new TimeRushGameScoreArrayAdapter(
+				this, R.layout.time_rush_game_score_element, players);
+		list.setAdapter(highScoreArrayAdapter);
 	}
 
 	public List<PlayerScore> getDBRecords() {
 		Cursor c = database.getTimeRushGameScores();
 		return DatabaseCommon.getTimeRushGamePlayerScoreList(c);
-	}
-
-	public void displayTableIdScores(String tableId) {
-
-		TextView noScore = (TextView) findViewById(R.id.no_score_text_view);
-		ListView list = (ListView) findViewById(R.id.local_high_score_list);
-
-		List<PlayerScore> scores = common.getCurrentTableHighScore(players,
-				tableId);
-		if (scores.size() == 0) {
-			noScore.setVisibility(View.VISIBLE);
-		} else {
-			noScore.setVisibility(View.INVISIBLE);
-		}
-		Collections.sort(scores, scoreComparator);
-
-		TimeRushGameScoreArrayAdapter highScoreArrayAdapter = new TimeRushGameScoreArrayAdapter(
-				this, R.layout.time_rush_game_score_element, scores);
-		list.setAdapter(highScoreArrayAdapter);
 	}
 
 }

@@ -7,7 +7,7 @@ import java.util.List;
 import net.gedzis.memory.BaseActivity;
 import net.gedzis.memory.R;
 import net.gedzis.memory.adapter.CardGameScoreArrayAdapter;
-import net.gedzis.memory.comparator.PlayerScoreComparator;
+import net.gedzis.memory.comparator.CardGamePlayerScoreComparator;
 import net.gedzis.memory.database.Database;
 import net.gedzis.memory.database.DatabaseCommon;
 import net.gedzis.memory.model.PlayerScore;
@@ -26,7 +26,7 @@ public class CardGameLocalHighScoreActivity extends BaseActivity {
 	private List<PlayerScore> players;
 	private Database database;
 	private LinearLayout layout;
-	private Comparator<PlayerScore> scoreComparator = new PlayerScoreComparator();
+	private Comparator<PlayerScore> scoreComparator = new CardGamePlayerScoreComparator();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

@@ -1,22 +1,36 @@
 package net.gedzis.memory.dialog;
 
 import net.gedzis.memory.R;
+import net.gedzis.memory.activity.GameSettingsActivity;
 import net.gedzis.memory.audio.AudioPlayer;
+import net.gedzis.memory.common.Common;
+import net.gedzis.memory.common.Constants;
+import net.gedzis.memory.database.Database;
+import net.gedzis.memory.model.PlayerScore;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TimeRushGameGameOverDialog extends Dialog implements
 		OnClickListener {
 
+	private Database database;
+	public Common common = new Common();
+
 	protected int correct;
+	private Context context;
 
 	public TimeRushGameGameOverDialog(Context context, int correct) {
 		super(context);
 		this.correct = correct;
+		this.context = context;
+
 		setContentView(R.layout.game_over_dialog_layout);
 		setTitle(R.string.game_over_dialog_title);
 
@@ -57,7 +71,39 @@ public class TimeRushGameGameOverDialog extends Dialog implements
 	}
 
 	public void saveScore() {
-		this.dismiss();
+		EditText userNameField = (EditText) findViewById(R.id.user_name_input);
+		String userName = userNameField.getText().toString();
+		if (userName.equals("")) {
+			userName = GameSettingsActivity.getUserName(context);
+		} else {
+			if (!userName.toLowerCase().equals(
+					GameSettingsActivity.getUserName(context).toLowerCase())) {
+				SharedPreferences gameSettings = GameSettingsActivity
+						.getSharedPreferences(context);
+				SharedPreferences.Editor prefEditor = gameSettings.edit();
+				prefEditor.putString(Constants.SETTINGS_USER_NAME, userName);
+				prefEditor.commit();
+
+			}
+		}
+		if (userName.equals("")) {
+		} else {
+			database = new Database(context);
+			database.open();
+			long saveSuccesful = database
+					.insertTimeRushGamePlayerScore(new PlayerScore(userName,
+							correct, 0, null));
+			database.close();
+			this.dismiss();
+			if (saveSuccesful >= 0) {
+				Toast.makeText(context, R.string.score_saved,
+						Toast.LENGTH_SHORT).show();
+			} else {
+				Toast.makeText(context, R.string.score_save_error,
+						Toast.LENGTH_SHORT).show();
+			}
+
+		}
 
 	}
 }

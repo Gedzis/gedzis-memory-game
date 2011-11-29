@@ -26,7 +26,7 @@ public class DatabaseCommon {
 		if (c.moveToFirst()) {
 			do {
 				String name = c.getString(c.getColumnIndex("name"));
-				int turns = c.getInt(c.getColumnIndex("turns"));
+				int turns = c.getInt(c.getColumnIndex("correct"));
 				scores.add(new PlayerScore(name, turns, 0, null));
 			} while (c.moveToNext());
 		}

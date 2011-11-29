@@ -13,11 +13,11 @@
 		android:layout_centerVertical="true">
 		<ImageView android:id="@+id/card_game_score"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_centerHorizontal="true" android:src="@drawable/new_game"
+			android:layout_centerHorizontal="true" android:src="@drawable/cards_game"
 			android:layout_marginTop="80dp" />
 		<ImageView android:id="@+id/time_rush_score"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:layout_centerHorizontal="true" android:src="@drawable/options" />
+			android:layout_centerHorizontal="true" android:src="@drawable/time_rush" />
 	</LinearLayout>
 
 </RelativeLayout>

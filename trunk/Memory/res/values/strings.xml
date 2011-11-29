@@ -44,4 +44,5 @@
         </string>
 	<string name="about_dialog_close_button_text">Close</string>
 	<string name="score_saved">Score saved</string>
+	<string name="score_save_error">Error in score saving</string>
 </resources>
