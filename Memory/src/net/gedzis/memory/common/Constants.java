@@ -24,9 +24,9 @@ public class Constants {
 	public static int TIME_GAME_COLUMNS = 4;
 	public static long TIME_GAME_MAX_PREVIEW = 10;
 
-	public static long CHRONO_ONE_MIN = 60000;
+	public static long TIME_RUSH_GAME_TIME = 30000;
 	public static long CHRONO_ONE_SECOND = 1000;
-	public static long TIME_RUSH_CHRONO_PREVIEW_TIME = 10000;
+	public static long TIME_RUSH_CHRONO_PREVIEW_TIME = 5000;
 
 	public static int LOCAL_HIGH_SCORE_AMOUNT_FOR_TABLE = 3;
 	public static String LOCAL_HIGH_SCORE_FILENAME = "highscore.xml";
