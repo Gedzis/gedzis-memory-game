@@ -89,7 +89,8 @@ public class TimeRushGameActivity extends BaseActivity {
 		localHighScoreButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-
+				startActivity(new Intent(v.getContext(),
+						TimeRushGameLocalHighScoreActivity.class));
 			}
 		});
 		chrono = (Chronometer) findViewById(R.id.timmer);
@@ -150,7 +151,7 @@ public class TimeRushGameActivity extends BaseActivity {
 		closeGameTableImages();
 		correctGuessesCaption.setVisibility(View.VISIBLE);
 		updateCorrectGuessesCaption();
-		startChrono(Constants.CHRONO_ONE_MIN);
+		startChrono(Constants.TIME_RUSH_GAME_TIME);
 	}
 
 	public void gameOver() {
@@ -164,9 +165,9 @@ public class TimeRushGameActivity extends BaseActivity {
 		gameStarted = false;
 		Dialog gameOverDialog = new TimeRushGameGameOverDialog(this, correct);
 		gameOverDialog.show();
-		
-		mainImage.setVisibility(View.GONE);
 
+		mainImage.setVisibility(View.GONE);
+		hideOnRotation(mainImage, images.get(mainCard).getBigImage(), 0, 90);
 
 	}
 
@@ -244,6 +245,23 @@ public class TimeRushGameActivity extends BaseActivity {
 		rotation.setInterpolator(new AccelerateInterpolator());
 		rotation.setAnimationListener(new ChangeViewBackground(currentView,
 				imageToReplace));
+		currentView.startAnimation(rotation);
+
+	}
+
+	private void hideOnRotation(ImageView currentView, Drawable imageToReplace,
+			float start, float end) {
+		// Find the center of image
+		final float centerX = currentView.getWidth() / 2.0f;
+		final float centerY = currentView.getHeight() / 2.0f;
+
+		// Create a new 3D rotation with the supplied parameter
+		// The animation listener is used to trigger the next animation
+		final Flip3dAnimation rotation = new Flip3dAnimation(start, end,
+				centerX, centerY);
+		rotation.setDuration(Constants.FLIP_DURATION_TIME);
+		rotation.setFillAfter(true);
+		rotation.setInterpolator(new AccelerateInterpolator());
 		currentView.startAnimation(rotation);
 
 	}
