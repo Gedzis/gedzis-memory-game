@@ -28,7 +28,7 @@
 	<string name="game_over_button_submit_score_local">Submit highscore</string>
 	<string name="game_over_button_close">Close</string>
 	<string name="no_score_text">No score saved</string>
-	
+
 	<string name="time_game_correct_guesses">Correct guesses: </string>
 	<string name="time_game_remaining_time">Time remaining: </string>
 
@@ -36,8 +36,15 @@
 	<string name="about_dialog_about_text">Memory is the classic board game, which helps you
 		to improve your memory skills. This is an entertaining and educational
 		game for people of all age. </string>
-	<string name="about_dialog_rules_text">
-		There is only one rule: find all pairs as fast as you can.
+	<string name="about_dialog_card_game_rules_text">
+		In Card game there is only one rule: find all pairs
+		as fast as
+		you can.
+        </string>
+	<string name="about_dialog_time_rush_game_rules_text">
+		In Time Rush game you will see 8 small images for 5
+		second and then in 30 seconds you should find pairs of big and small
+		image
         </string>
 	<string name="about_dialog_creator">
 		Creator: Gedzis (www.gedzis.net)

@@ -22,16 +22,26 @@
 			android:typeface="normal" android:bufferType="normal"
 			android:text="@string/about_dialog_about_text" android:paddingTop="20dp" />
 
-		<TextView android:id="@+id/about_rules_text"
+		<TextView android:id="@+id/about_card_game_rules_text"
 			android:layout_below="@+id/about_text" android:layout_width="wrap_content"
 			android:layout_height="wrap_content" android:layout_gravity="center"
 			android:gravity="left" android:typeface="normal" android:bufferType="normal"
-			android:text="@string/about_dialog_rules_text" android:paddingTop="20dp" />
+			android:text="@string/about_dialog_card_game_rules_text"
+			android:paddingTop="20dp" />
+
+		<TextView android:id="@+id/about_time_ruch_game_rules_text"
+			android:layout_below="@+id/about_card_game_rules_text"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_gravity="center" android:gravity="left"
+			android:typeface="normal" android:bufferType="normal"
+			android:text="@string/about_dialog_time_rush_game_rules_text"
+			android:paddingTop="20dp" />
 
 		<TextView android:id="@+id/about_creator"
-			android:layout_below="@+id/about_rules_text" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_gravity="center"
-			android:gravity="left" android:typeface="normal" android:bufferType="normal"
+			android:layout_below="@+id/about_time_ruch_game_rules_text"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_gravity="center" android:gravity="left"
+			android:typeface="normal" android:bufferType="normal"
 			android:text="@string/about_dialog_creator" android:paddingTop="20dp" />
 
 		<Button android:id="@+id/about_close_button"
