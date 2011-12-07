@@ -40,6 +40,9 @@ public class TimeRushGameGameOverDialog extends Dialog implements
 		TextView turnsTextAmountView = (TextView) findViewById(R.id.game_over_turns);
 		turnsTextAmountView.setText(Integer.toString(correct));
 
+		EditText userNameInput = (EditText) findViewById(R.id.user_name_input);
+		userNameInput.setText(GameSettingsActivity.getUserName(context));
+
 		// Hide fields
 		TextView elapsedTimeTextAmountView = (TextView) findViewById(R.id.game_over_timmer);
 		elapsedTimeTextAmountView.setVisibility(View.INVISIBLE);
