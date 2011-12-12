@@ -145,6 +145,7 @@ public class TimeRushGameActivity extends BaseActivity {
 	}
 
 	public void startGame() {
+		mainCard = 0;
 		gameStarted = true;
 		correct = 0;
 		setMainGameCard();
@@ -155,6 +156,7 @@ public class TimeRushGameActivity extends BaseActivity {
 	}
 
 	public void gameOver() {
+		hideOnRotation(mainImage, images.get(mainCard).getBigImage(), 0, 90);
 		chrono.stop();
 		lineOne.setVisibility(View.GONE);
 		lineTwo.setVisibility(View.GONE);
@@ -167,14 +169,16 @@ public class TimeRushGameActivity extends BaseActivity {
 		gameOverDialog.show();
 
 		mainImage.setVisibility(View.GONE);
-		hideOnRotation(mainImage, images.get(mainCard).getBigImage(), 0, 90);
 
 	}
 
 	public void setMainGameCard() {
 		Random r = new Random();
-		mainCard = r.nextInt(Constants.TIME_GAME_ROWS
-				* Constants.TIME_GAME_COLUMNS);
+		int lastCard = mainCard;
+		while (lastCard == mainCard) {
+			mainCard = r.nextInt(Constants.TIME_GAME_ROWS
+					* Constants.TIME_GAME_COLUMNS);
+		}
 		if (mainCard == 0) {
 			mainCard++;
 		}
