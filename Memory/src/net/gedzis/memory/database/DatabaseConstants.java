@@ -2,7 +2,7 @@ package net.gedzis.memory.database;
 
 public class DatabaseConstants {
 	public static String DATABASE_NAME = "memory-db";
-	public static final int DATABASE_VERSION = 2;
+	public static final int DATABASE_VERSION = 3;
 
 	public static final String CARD_GAME_LOCAL_HIGH_SCORE_TABLE_NAME = "localscore";
 	public static String CARD_GAME_LOCAL_HIGH_SCORE_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS "
